@@ -38,9 +38,9 @@ sitemap_index.xml
 .htaccess
 
 # FE built assets and dependencies
-/wp-content/themes/DRA/assets/dist/
-/wp-content/themes/DRA/assets/src/sassvg/*.scss
-/wp-content/themes/DRA/node_modules
+/wp-content/themes/tht/assets/dist/
+/wp-content/themes/tht/assets/src/sassvg/*.scss
+/wp-content/themes/tht/node_modules
 
 # Local Dirs
 kim/
