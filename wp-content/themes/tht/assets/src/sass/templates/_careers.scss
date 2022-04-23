@@ -1,0 +1,18 @@
+#careersAccord {
+    padding-top: 80px;
+    background-color: $color-grey-0;
+
+    @include breakpoint(tablet-only) {
+        padding-top: 45px;
+    }
+
+    @include breakpoint(mobile) {
+        padding-top: 40px;
+    }
+}
+
+#careerForm.wrapper__xs {
+    @include breakpoint(tablet) {
+        max-width: 100%;
+    }
+}

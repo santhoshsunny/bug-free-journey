@@ -1,0 +1,125 @@
+@mixin vertical-justify() {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@mixin vertical-align() {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin center-align() {
+  @include vertical-align;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin main-overlay() {
+  display: block;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  background: $color-white;
+  padding: 200px 0;
+  transition: .5s all ease-in-out;
+
+  &.show-overlay {
+    left:0;
+    opacity: 1;
+    transition: .5s all ease-in-out;
+  }
+
+  &__container {
+    max-width: 1200px;
+    min-height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include breakpoint(tablet-plus) {
+      padding: 0 20px;
+      margin-top: -75px;
+    }
+
+    &___messaging {
+      position: relative;
+
+      .overlay-headline {
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .overlay-subheadline {
+        font-size: 18px;
+        font-weight: normal;
+        width: 100%;
+        //max-width: 500px;
+        margin-top: 15px;
+        margin-bottom: 50px;
+      }
+
+      .overlay-close {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+        top: -10px;
+        right: 0;
+        cursor: pointer;
+
+        &:after {
+          content:'+';
+          font-weight: normal;
+          font-size: 45px;
+          position: relative;
+          transform: rotate(45deg);
+          display: inline-block;
+          margin-top: -5px;
+          margin-left: 5px;
+        }
+      }//sbv-close
+    }//messaging
+
+  }//container
+}
+
+@mixin centerImg() {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: auto;
+  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.placeholderImg {
+  background-color: $color-grey-20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  @include breakpoint(mobile) {
+    padding: 45px 0;
+  }
+
+  img {
+    filter: grayscale(100%);
+    opacity: .2;
+  }
+}

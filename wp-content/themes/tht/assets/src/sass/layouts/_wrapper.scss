@@ -1,0 +1,37 @@
+@mixin wrapper($width: $max-container-width) {
+    max-width: $width + 40px;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakpoint(tablet) {
+      padding: 0;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    @include breakpoint(mobile) {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+}
+
+.wrapper {
+  @include wrapper();
+
+  &__narrow {
+    @include wrapper($max-container-width-narrow);
+  }
+
+  &__wide {
+    @include wrapper($max-container-width-wide);
+  }
+
+  &__xs {
+    @include wrapper($max-container-width-xs);
+  }
+}
+
+body.home .wrapper {
+  max-width: $max-container-width-wide;
+}

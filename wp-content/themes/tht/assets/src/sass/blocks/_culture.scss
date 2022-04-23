@@ -1,0 +1,147 @@
+#our-culture {
+    .culture {
+        &--title {
+            @include fonts(headline1);
+
+            text-align: center;
+            color: $color-blue-dk;
+            margin-bottom: 50px;
+
+            @include breakpoint(tablet-only) {
+                margin-bottom: 40px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-bottom: 30px;
+            }
+        }
+
+        &--block {
+            display: block;
+
+            &:not(:last-child) {
+                @include breakpoint(desktop) {
+                    margin-bottom: 95px;
+                }
+            }
+
+            .wrapper {
+                display: flex;
+                justify-content: space-between;
+
+                @include breakpoint(tablet) {
+                    margin: 0;
+                    display: block;
+                }
+            }
+
+            &-img {
+                margin-right: 18px;
+
+                @include breakpoint(tablet-only) {
+                    margin: 0 4%;
+                }
+
+                @include breakpoint(mobile) {
+                    margin: 0 3%;
+                }
+
+                img {
+                    max-height: calc(100% - 50px);
+                    width: auto;
+
+                    @include breakpoint(tablet) {
+                        width: 100%;
+                        max-height: none;
+                        height: auto;
+                        margin-bottom: 50px;
+                    }
+
+                    @include breakpoint(mobile) {
+                        margin-bottom: 25px;
+                    }
+                }
+            }
+
+            &-text {
+                max-width: calc(50% - 62px);
+
+                @include breakpoint(tablet) {
+                    background: $color-white;
+                    max-width: none;
+                    padding: 30px 4% 0;
+                }
+
+                @include breakpoint(mobile) {
+                    padding: 25px 3% 0;
+                }
+
+                .block--title {
+                    @include fonts(headline2);
+
+                    color: $color-blue-dk;
+                    margin-bottom: 20px;
+
+                    @include breakpoint(tablet) {
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+
+            &.even {
+                background-image: 
+                linear-gradient(to bottom, white, white 97px, transparent 97px, transparent 100%),
+                linear-gradient(to right, $color-blue-dk, $color-blue-dk calc(50% - 48px), white  calc(50% - 48px), white 100%);
+
+                @include breakpoint(tablet-only) {
+                    background-image: 
+                    linear-gradient(to bottom, white, white 97px, transparent 97px, transparent 100%),
+                    linear-gradient(to right, $color-blue-dk, $color-blue-dk 87%, white  87%, white 100%);
+                }
+
+                @include breakpoint(mobile) {
+                    background-image: 
+                    linear-gradient(to bottom, white, white 45px, transparent 45px, transparent 100%),
+                    linear-gradient(to right, $color-blue-dk, $color-blue-dk 87%, white  87%, white 100%);
+                }
+
+
+                .culture--block-text {
+                    padding-top: 35px;
+                }
+
+                .culture--block-img {
+                    img {
+                        @include breakpoint(desktop) {
+                            float: right;
+                        }
+                    }
+                }
+            }
+
+            &.odd {
+                background-image: 
+                linear-gradient(to bottom, white, white 97px, transparent 97px, transparent 100%),
+                linear-gradient(to left, $color-blue-lt, $color-blue-lt calc(50% - 48px), white  calc(50% - 48px), white 100%);
+
+                @include breakpoint(tablet-only) {
+                    background-image: 
+                    linear-gradient(to bottom, white, white 97px, transparent 97px, transparent 100%),
+                    linear-gradient(to left, $color-blue-dk, $color-blue-dk 87%, white  87%, white 100%);
+                }
+
+                @include breakpoint(mobile) {
+                    background-image: 
+                    linear-gradient(to bottom, white, white 45px, transparent 45px, transparent 100%),
+                    linear-gradient(to left, $color-blue-dk, $color-blue-dk 87%, white  87%, white 100%);
+                }
+
+                .culture--block-img {
+                    @include breakpoint(desktop) {
+                        order: 2;
+                    }
+                }
+            }
+        }
+    }
+}

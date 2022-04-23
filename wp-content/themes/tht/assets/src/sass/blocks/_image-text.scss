@@ -1,0 +1,116 @@
+#img-text {
+    > .wrapper {
+        display: flex;
+
+        @include breakpoint(tablet) {
+            margin: 0;
+            flex-direction: column;
+        }
+    }
+
+
+    .img-text-- {
+        &content {
+            @extend %contentBox;
+
+            width: 100%;
+            max-width: 600px;
+            height: 455px;
+            background: $color-grey-0;
+
+            @include breakpoint(tablet) {
+                height: auto;
+                max-width: 100%;
+                justify-content: flex-start;
+                padding: 40px 40px 199px;
+
+                &__bottom {
+                    //margin-top: 25px;
+                }
+            }
+
+            @include breakpoint(mobile) {
+                padding: 33px 23px 50px;
+            }
+        }
+
+        &title {
+            @include fonts('headline1');
+
+            color: $color-blue-dk;
+            margin-bottom: 25px;
+            max-width: 460px;
+
+            @include breakpoint(tablet) {
+                max-width: none;
+            }
+        }
+
+        &description {
+            color: $color-grey-80;
+            max-width: 460px;
+
+            @include breakpoint(tablet) {
+                max-width: none;
+            }
+        }
+
+        &img {
+            @include breakpoint(tablet-only) {
+                margin-top: -169px;
+                margin-left: 4%;
+                margin-right: 4%;
+            }
+
+            @include breakpoint(mobile) {
+                margin-left: 3%;
+                margin-right: 3%;
+            }
+
+            img {
+                display: block;
+                height: 100%;
+
+                @include breakpoint(tablet) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &.content__left {
+        .img-text--img {
+            order: 2;
+        }
+
+        .img-text--content {
+            order: 1;
+        }
+    }
+
+    &.content__right {
+        > .wrapper {
+            align-items: flex-end;
+
+            @include breakpoint(tablet) {
+                align-items: center;
+            }
+        }
+
+        .img-text--img {
+            order: 1;
+
+            @include breakpoint(tablet) {
+                order: 2;
+            }
+        }
+
+        .img-text--content {
+            order: 2;
+
+            @include breakpoint(tablet) {
+                order: 1;
+            }
+        }
+    }
+}

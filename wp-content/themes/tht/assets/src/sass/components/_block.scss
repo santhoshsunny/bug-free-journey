@@ -1,0 +1,79 @@
+%greyDiagonal {
+    background-image: linear-gradient(to bottom right, #ffffff 0%, #ffffff 50%, rgba(233,233,233,.6) 50%, #ffffff 82%, #ffffff 100%);
+
+    @include breakpoint(tablet) {
+        background-image: none;
+    }
+}
+
+.block {
+    margin-bottom: 80px;
+
+    @include breakpoint(tablet-only) {
+        margin-bottom: 65px;
+    }
+
+    @include breakpoint(mobile) {
+        margin-bottom: 30px;
+    }
+
+    &.background__ {
+        &bottom,
+        &full {
+            margin-bottom: 0;
+            padding-bottom: 80px;
+
+            @include breakpoint(tablet-only) {
+                padding-bottom: 65px;
+            }
+
+            @include breakpoint(mobile) {
+                padding-bottom: 30px;
+            }
+
+            + .block {
+                padding-top: 70px;
+
+                @include breakpoint(tablet) {
+                    padding-top: 40px;
+                }
+            }
+        }
+    }
+
+    &.greyDiagonal {
+        @extend %greyDiagonal;
+        @extend .block__alt;
+    }
+
+    &.block__alt {
+        margin-bottom: 0;
+        padding-bottom: 80px;
+
+        @include breakpoint(tablet-only) {
+            padding-bottom: 65px;
+        }
+
+        @include breakpoint(mobile) {
+            padding-bottom: 30px;
+        }
+    }
+
+    &--title {
+        @include fonts(headline1);
+
+        display: block;
+        margin-bottom: 30px;
+        color: $color-blue-dk;
+
+        @include breakpoint(tablet) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &--content {
+        @include breakpoint(mobile) {
+            text-align: left;
+        }
+    }
+}

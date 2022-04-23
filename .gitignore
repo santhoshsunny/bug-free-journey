@@ -1,0 +1,46 @@
+# Config files
+wp-config.php
+searchreplacedb2.php
+db-connect.php
+
+# ignore everything in the root except the "wp-content" directory.
+
+
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins", "plugins", "themes" directory
+/wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
+/wp-content/plugins/query-monitor/
+
+# ignore these plugins
+/wp-content/plugins/hello.php
+
+# ignore node dependency directories
+node_modules/
+.vscode/
+.idea/
+.tmb/
+.quarantine/
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+*.gz
+
+# Other Files
+enter.php
+robots.txt
+sitemap.xml
+sitemap_index.xml
+.htaccess
+
+# FE built assets and dependencies
+/wp-content/themes/DRA/assets/dist/
+/wp-content/themes/DRA/assets/src/sassvg/*.scss
+/wp-content/themes/DRA/node_modules
+
+# Local Dirs
+kim/

@@ -1,0 +1,25 @@
+#page-intro,
+#opportunities-intro {
+    @extend .background__alt;
+
+    text-align: center;
+
+    @include breakpoint(mobile) {
+        padding-left: 15px;
+        padding-right: 15px;
+
+        [class^='wrapper'] {
+            margin: 0 auto;
+        }
+    }
+
+    .block {
+        &--title {
+            margin-bottom: 20px;
+        }
+
+        &--content {
+            @include fonts(intro-text);
+        }
+    }
+}

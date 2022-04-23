@@ -1,0 +1,90 @@
+#opportunities-intro {
+    .block {
+        &--content {
+            color: $color-black;
+
+            @include breakpoint(mobile) {
+                text-align: center;
+            }
+        }
+
+        &--btn {
+            margin-top: 35px;
+
+            @include breakpoint(tablet-only) {
+                margin-top: 20px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-top: 30px;
+            }
+
+            a {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+#product-filters {
+    border-bottom: 1px solid $color-grey-40;
+    padding-bottom: 25px;
+
+    @include breakpoint(tablet) {
+        padding-bottom: 30px;
+    }
+}
+
+.page-template-template-productfilters {
+    #modal {
+        .wrapper {
+            width: 860px;
+        }
+
+        #modal--inner {
+            position: relative;
+            padding: 0;
+            z-index: 9999;
+            max-height: calc(100% - 70px);
+
+            &:before {
+                content:"";
+                display: block;
+                background-image: url('../../images/30.gif');
+                min-height: 50px;
+                background-repeat: no-repeat;
+                background-position: 50%;
+                position: absolute;
+                width: 100%;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+        }
+
+        .gallery--items {
+            //width: 820px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease;
+            -webkit-transition: opacity 1s ease;
+
+            img {
+                opacity: 0;
+            }
+
+            &.slick-initialized {
+                visibility: visible;
+                opacity: 1;
+
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .slick-track {
+            min-height: 250px;
+        }
+    }
+}

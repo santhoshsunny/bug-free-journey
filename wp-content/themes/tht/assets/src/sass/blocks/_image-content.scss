@@ -1,0 +1,50 @@
+#image-content {
+    overflow: hidden;
+    position: relative;
+
+    .bg-image {
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+
+        img {
+            @include centerImg();
+        }
+    }
+
+    .content {
+        padding-top: 110px;
+        padding-bottom: 110px;
+        color: $color-white;
+
+        @include breakpoint(tablet-only) {
+            padding-top: 60px;
+            padding-bottom: 75px;
+        }
+
+        @include breakpoint(mobile) {
+            padding-top: 35px;
+            padding-bottom: 35px;
+        }
+
+        &--title {
+            @include fonts(headline1);
+
+            margin-bottom: 25px;
+
+            @include breakpoint(tablet) {
+                margin-bottom: 15px;
+            }
+        }
+
+        &--text {
+            @include breakpoint(desktop) {
+                max-width: 745px;
+            }
+
+            @include breakpoint(tablet-only) {
+                max-width: 77%;
+            }
+        }
+    }
+}

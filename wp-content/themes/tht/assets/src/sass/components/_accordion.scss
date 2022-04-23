@@ -1,0 +1,72 @@
+.accordion {
+    dt {
+        @extend %serif;
+
+        background-color: $color-blue-dk;
+        color: $color-white;
+        padding: 12px 30px;
+        font-size: 28px;
+        margin-bottom: 12px;
+        position: relative;
+        cursor: pointer;
+
+        @include breakpoint(tablet-only) {
+            padding: 30px 25px;
+            font-size: 22px;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 10px 16px;
+            font-size: 20px;
+        }
+
+        &:after {
+            @include sassvg('triangle-filled', $color-orange, 0, 100%);
+
+            content: "";
+            display: block;
+            height: 14px;
+            width: 10px;
+            position: absolute;
+            top: calc(50% - 5px);
+            right: 23px;
+            transform: rotate(90deg);
+        }
+
+        &.is-active {
+            background-color: $color-orange;
+            color: $color-black;
+            font-weight: 700;
+
+            &:after {
+                @include sassvg('triangle-filled', $color-black, 0, 100%);
+
+                transform: rotate(-90deg);
+            }
+
+            + dd {
+                padding-top: 23px;
+                padding-bottom: 35px;
+
+                @include breakpoint(mobile) {
+                    padding-top: 18px;
+                }
+            }
+        }
+    }
+
+    dd {
+        max-height: 0;
+        overflow: hidden;
+        transition: $transition;
+        padding: 0 35px;
+
+        @include breakpoint(tablet-only) {
+            padding: 0 30px;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 0 15px;
+        }
+    }
+}

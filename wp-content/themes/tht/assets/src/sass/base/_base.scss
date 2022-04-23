@@ -1,0 +1,133 @@
+:root {
+  --panelBg: #{$color-blue-dk};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include fonts('text');
+
+  border-top: 6px solid $color-blue-lt;
+  position: relative;
+
+  &.nav-expanded,
+  &.modal-open {
+    overflow: hidden!important;
+  }
+}
+
+button {
+  border: 0;
+}
+
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+
+  &:focus {
+    background-color: #eee;
+    clip: auto !important;
+    clip-path: none;
+    color: #444;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar. */
+  }
+}
+
+// !important for overrides
+.nopad {
+  padding: 0!important;
+  margin: auto!important;
+}
+
+.background__ {
+    &bottom {
+      background-image:
+        linear-gradient(
+          to bottom,
+          rgba(255,255,255,0),
+          rgba(255,255,255,0) 50%,
+          var(--panelBg) 50%,
+          var(--panelBg) 100%
+        );
+    }
+
+    &top {
+      background-image:
+        linear-gradient(
+          to bottom, 
+          var(--panelBg),
+          var(--panelBg) 50%,
+          rgba(255,255,255,0) 50%,
+          rgba(255,255,255,0) 100%
+        );
+    }
+
+    &full {
+      background: var(--panelBg);
+    }
+
+    &alt {
+      --panelBg: #{$color-grey-0}
+    }
+
+    + [class^='background__'] {
+      margin-top: -1px;
+    }
+}
+
+.aligncenter {
+  text-align: center;
+}
+
+.subheading {
+  @include fonts(subheading);
+}
+
+main ul:not(.slick-dots) {
+  margin-left: 23px;
+
+  > li {
+    display: flex;
+    align-items: center;
+
+    &:before {
+      content: "";
+      display: block;
+      height: 10px;
+      width: 10px;
+      background-color: $color-orange;
+      margin-right: 20px;
+    }
+
+    + li {
+      margin-top: 20px;
+
+      @include breakpoint(tablet-only) {
+        margin-top: 17px;
+      }
+
+      @include breakpoint(mobile) {
+        margin-top: 14px;
+      }
+    }
+  }
+}

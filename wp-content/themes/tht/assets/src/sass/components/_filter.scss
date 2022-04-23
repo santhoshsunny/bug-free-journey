@@ -1,0 +1,40 @@
+#filter {
+    .filter--container {
+        display: flex;
+
+        @include breakpoint(mobile) {
+            flex-direction: column;
+            max-width: 277px;
+            margin: auto;
+        }
+    }
+
+    .filter--box {
+        @include breakpoint(mobile) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        label {
+            margin-right: 5px;
+        }
+
+        + .filter--box {
+            margin-left: 55px;
+
+            @include breakpoint(tablet-only) {
+                margin-left: 18px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-left: 0;
+                margin-top: 16px;
+            }
+        }
+
+        .select2-container {
+            min-width: 190px;
+        }
+    }
+}

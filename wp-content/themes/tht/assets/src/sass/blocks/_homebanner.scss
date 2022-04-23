@@ -1,0 +1,117 @@
+#homebanner {
+    height: 609px;
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint(tablet) {
+        height: 485px;
+    }
+
+    @include breakpoint(mobile) {
+        height: auto;
+    }
+
+    .banner--img {
+        height: 100%;
+        position: absolute;
+        width: 100%;
+
+        @include breakpoint(tablet) {
+            position: relative;
+            height: calc(100% - 50px);
+        }
+
+        @include breakpoint(mobile) {
+            height: auto;
+        }
+
+        img {
+            width:auto;
+            height: 100%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        z-index: 2;
+        position: relative;
+
+        @include breakpoint(tablet) {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            flex-direction: row;
+        }
+
+        @include breakpoint(mobile) {
+            position: relative;
+            margin-top: -10px!important;
+        }
+    }
+
+    [class^="btn"] {
+        font-size: 24px;
+        align-self: baseline;
+
+        @include breakpoint(mobile) {
+            min-width: 320px;
+        }
+    }
+}
+
+.homebanner--{
+    &content {
+        @extend %contentBox;
+
+        background: $color-blue-dk;
+        width: 32%;
+        margin: 60px 0;
+
+        @include breakpoint(tablet) {
+            width: 100%;
+            max-width: 600px;
+            margin: 0;
+            padding: 30px 36px 50px;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 20px;
+        }
+    }
+
+    &title,
+    &subtitle {
+        @include fonts('headline1');
+
+        color: $color-white;
+        max-width: 330px;
+
+        @include breakpoint(tablet-only) {
+            display: inline-block;
+        }
+    }
+
+    &title {
+        @include breakpoint(tablet) {
+            margin-right: 10px;
+        }
+    }
+
+    &description {
+        @include fonts('headline3');
+
+        color: $color-white;
+        margin: 15px 0;
+        max-width: 330px;
+
+        @include breakpoint(tablet) {
+            max-width: calc(100% - 60px);
+        }
+    }
+}

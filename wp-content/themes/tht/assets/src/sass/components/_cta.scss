@@ -1,0 +1,40 @@
+@mixin cta($text, $accent, $alt) {
+    @include fonts(btn);
+
+    display: inline-flex;
+    color: $text;
+    width: auto;
+    flex-grow: 0;
+    align-items: center;
+    line-height: 1.2;
+    border-bottom: 1px solid $accent;
+    padding-bottom: 5px;
+
+    @include breakpoint(tablet-only) {
+        margin-top: 20px;
+    }
+
+    &:after {
+        content: "";
+        display: inline-block;
+        width: 11px;
+        height: 17px;
+        margin-left: 36px;
+
+        @include sassvg('triangle', $accent, 50%, 100%, no-repeat);
+    }
+
+    &:hover {
+        border-bottom: 1px solid $alt;
+
+        &:after {
+            @include sassvg('triangle-filled', $accent, 50%, 100%, no-repeat);
+        }
+    }
+}
+
+.cta {
+    &__a {
+        @include cta($color-blue-dk, $color-orange, $color-blue-lt);
+    }
+}

@@ -1,0 +1,26 @@
+#setApart {
+    padding-top: 70px;
+    background: $color-grey-0;
+
+    @include breakpoint(tablet) {
+        padding-top: 40px;
+    }
+
+    .tabcordion {
+        @include breakpoint(tablet) {
+            margin-top: 15px;
+        }
+
+        .tab--trigger {
+            @include breakpoint(tablet-only) {
+                margin-left: 4%;
+                margin-right: 4%;
+            }
+
+            @include breakpoint(mobile) {
+                margin-left: 3%;
+                margin-right: 3%;
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+// import compiled sprites file to generated css
+// so it is present on the sourcemap
+@import "../sprite/sprite.css";
+@import "../../../node_modules/slick-carousel/slick/slick.css";
+@import "../../../node_modules/slick-carousel/slick/slick-theme.css";
+@import "../../../node_modules/select2/dist/css/select2.min.css";
+
+// include sassvg generate inline svgs
+@import "../sassvg/sassvg";
+
+@import "base/reset";
+
+@import "base/normalize";
+@import "base/lib";
+@import "base/variables";
+@import "base/colors";
+@import "base/fonts";
+@import "base/breakpoints";
+@import "base/utils";
+@import "base/base";
+
+@import "layouts/wrapper";
+@import "layouts/header";
+@import "layouts/footer";
+
+@import "components/block";
+@import "components/button";
+@import "components/cta";
+@import "components/content-box";
+@import "components/slick-slider";
+@import "components/modal";
+@import "components/tabcordion";
+@import "components/card";
+@import "components/accordion";
+@import "components/form";
+@import "components/select";
+@import "components/pagination";
+@import "components/filter";
+@import "components/property";
+
+@import "blocks/homebanner";
+@import "blocks/homecats";
+@import "blocks/image-text";
+@import "blocks/statistics";
+@import "blocks/testimonial";
+@import "blocks/banner";
+@import "blocks/introduction";
+@import "blocks/image-content";
+@import "blocks/culture";
+@import "blocks/sustainability";
+@import "blocks/team";
+@import "blocks/what-we-do";
+@import "blocks/setApart";
+@import "blocks/career-intro";
+@import "blocks/infographics";
+@import "blocks/news-list";
+@import "blocks/opportunities-links";
+@import "blocks/criteria";
+@import "blocks/acquisition";
+@import "blocks/cms";
+@import "blocks/contact";
+
+@import "templates/careers";
+@import "templates/news";
+@import "templates/disposition";

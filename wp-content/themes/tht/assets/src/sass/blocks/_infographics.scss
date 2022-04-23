@@ -1,0 +1,35 @@
+#investmentGraphs {
+    margin-bottom: 8px;
+
+    .block--title {
+        color: $color-white;
+    }
+
+    .infographs {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 30px;
+
+        @include breakpoint(tablet) {
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .graph {
+            + .graph {
+                @include breakpoint(tablet-only) {
+                    margin-top: 60px;
+                }
+
+                @include breakpoint(mobile) {
+                    margin-top: 40px;
+                }
+            }
+
+            img {
+                height: auto;
+                max-width: 90%;
+            }
+        }
+    }
+}

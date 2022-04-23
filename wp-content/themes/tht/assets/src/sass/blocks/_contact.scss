@@ -1,0 +1,77 @@
+#contactBlock {
+    color: $color-white;
+    margin-bottom: 25px;
+    padding: 55px 0;
+
+    @include breakpoint(tablet-only) {
+        padding: 50px 0;
+    }
+
+    @include breakpoint(mobile) {
+        padding: 20px 0;
+        margin-bottom: 15px;
+    }
+
+    > .wrapper__narrow {
+        display: flex;
+
+        @include breakpoint(mobile) {
+            flex-direction: column;
+        }
+
+        .contact-office {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            justify-content: space-between;
+
+            @include breakpoint(mobile) {
+                padding: 20px 0;
+                width: 100%;
+            }
+
+            &:not(:last-child) {
+                border-right: 1px solid #50657a;
+                margin-right: 75px;
+
+                @include breakpoint(tablet-only) {
+                    margin-right: 40px;
+                }
+
+                @include breakpoint(mobile) {
+                    margin-right: auto;
+                    border-right: none;
+                    border-bottom: 1px solid #50657a;
+                }
+            }
+
+            &__title {
+                @extend %serif;
+
+                color: $color-orange;
+                font-size: 26px;
+                margin-bottom: 15px;
+                flex-basis: 100%;
+
+                @include breakpoint(tablet-only) {
+                    font-size: 22px;
+                }
+
+                @include breakpoint(mobile) {
+                    margin-bottom: 20px;
+                }
+            }
+
+            &__info {
+                margin-bottom: 20px;
+                font-size: 18px;
+
+                @include breakpoint(tablet) {
+                    font-size: 16px;
+                    flex-basis: 100%;
+                }
+            }
+        }
+    }
+}

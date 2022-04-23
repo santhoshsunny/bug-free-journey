@@ -1,0 +1,76 @@
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+
+    @include breakpoint(mobile) {
+        overflow: scroll;
+    }
+
+    &.is-open {
+        display: block;
+    }
+
+    .wrapper {
+        @include vertical-align();
+
+        height: 100%;
+
+        @include breakpoint(mobile) {
+            padding-top: 35px;
+            position: relative;
+            display: block;
+            //margin-top: 3%;
+            top: 50%;
+            transform: translateY(-50%);
+            height: auto;
+        }
+
+        #modal--inner {
+            background: $color-white;
+            padding: 68px 50px 55px;
+            border-bottom: 8px solid $color-orange;
+
+            @include breakpoint(tablet-only) {
+                padding: 38px 23px;
+            }
+
+            @include breakpoint(mobile) {
+                padding: 20px;
+            }
+        }
+    }
+
+    #modal--close {
+        height: 35px;
+        width: 35px;
+        background: $color-orange;
+        position: relative;
+        margin-left: auto;
+        cursor: pointer;
+
+        @include breakpoint(mobile) {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        &::before {
+            @include sassvg('plus', $color-white, 0 50%, 24px);
+
+            display: block;
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            transform: rotate(45deg);
+            top: calc(50% - 14px);
+            left: calc(50% - 14px);
+        }
+    }
+}

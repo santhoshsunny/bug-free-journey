@@ -1,0 +1,28 @@
+#whatWeDo {
+    .is-slider {
+        margin-bottom: 50px;
+    }
+
+    .content {
+        @include breakpoint(tablet) {
+            margin: 0;
+        }
+
+        .subheading {
+            color: $color-black;
+            margin-bottom: 25px;
+        }
+
+        p {
+            margin-bottom: 45px;
+
+            @include breakpoint(mobile) {
+                margin-bottom: 35px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

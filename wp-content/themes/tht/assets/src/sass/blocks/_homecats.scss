@@ -1,0 +1,189 @@
+#homecats {
+    > .wrapper {
+        display: flex;
+
+        @include breakpoint(tablet) {
+            flex-direction: column;
+            margin: 0;
+        }
+    }
+
+    .homecats--{
+        &content {
+            @extend %contentBox;
+
+            width: 100%;
+            max-width: 480px;
+            max-height: 520px;
+
+            @include breakpoint(tablet) {
+                max-width: 100%;
+                max-height: none;
+                padding: 40px 40px 219px;
+            }
+
+            @include breakpoint(mobile) {
+                padding: 20px 20px 150px;
+            }
+        }
+
+        &title {
+            @include fonts('headline1');
+
+            color: $color-blue-dk;
+            margin-bottom: 25px;
+            max-width: 340px;
+
+            @include breakpoint(tablet) {
+                max-width: none;
+            }
+        }
+
+        &description {
+            color: $color-grey-80;
+            max-width: 340px;
+
+            @include breakpoint(tablet) {
+                max-width: none;
+            }
+
+            @include breakpoint(mobile) {
+                margin: 57px 0 48px;
+            }
+        }
+
+        &categories {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: $color-grey-0;
+
+            @include breakpoint(tablet-only) {
+                margin-top: -189px;
+                background: none;
+                padding: 0 40px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-top: -97px;
+                background: none;
+                padding: 0 20px;
+            }
+        }
+    }
+
+    .categories--block {
+        height: 324px;
+        width: calc(50% - 12px);
+        max-width: 456px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 37px;
+
+        @include breakpoint(tablet-only) {
+            height: 236px;
+            margin-bottom: 22px;
+        }
+
+        @include breakpoint(mobile) {
+            width: auto;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            @include centerImg();
+        }
+
+        &:last-child,
+        &:nth-last-child(2) {
+            margin-bottom: 10px;
+        }
+
+        a {
+            display: block;
+            position: relative;
+            height: 100%;
+
+            .categories--meta {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                background: rgba(0,0,0,0.6);
+                min-height: 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 20px;
+    
+                @include breakpoint(tablet) {
+                    padding: 10px 20px 20px;
+                    min-height: 50px;
+                }
+    
+                .meta--title {
+                    @extend %serif;
+                    font-size: 24px;
+                    line-height: 32px;
+                    color: $color-white;
+                    text-decoration: underline;
+    
+                    @include breakpoint(tablet) {
+                        font-size: 20px;
+                    }
+                }
+    
+                .meta--description {
+                    display: none;
+    
+                    @extend %sansSerif;
+                    font-size: 16px;
+                    color: $color-white;
+                }
+            }
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: calc(100% - 8px);
+                width: 100%;
+                border-bottom: 8px solid $color-blue-lt;
+                z-index: 3;
+            }
+
+            &:hover {
+                &:before {
+                    border: 8px solid $color-orange;
+                    height: calc(100% - 16px);
+                    width: calc(100% - 16px);
+                }
+
+                &:after {
+                    content: "";
+                    display: block;
+                    height: 27px;
+                    width: 27px;
+                    position: absolute;
+                    bottom: 8px;
+                    background: $color-orange;
+                    left: calc(50% - 12px);
+
+                    @include sassvg('plus', $color-white, 50%, 13px);
+                }
+
+                .categories--meta {
+                    padding: 20px 20px 50px;
+                    background: none;
+                    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.82) 100%);
+
+                    .meta--description {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

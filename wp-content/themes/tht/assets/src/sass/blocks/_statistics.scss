@@ -1,0 +1,105 @@
+#statistics {
+    .statistics-- {
+        &title {
+            @include fonts('headline1');
+
+            color: $color-white;
+            text-align: center;
+            margin-bottom: 70px;
+
+            @include breakpoint(tablet-only) {
+                margin-bottom: 35px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-bottom: 45px;
+            }
+        }
+
+        &list {
+            display: flex;
+            align-content: stretch;
+
+            @include breakpoint(tablet-only) {
+                flex-wrap: wrap;
+            }
+
+            @include breakpoint(mobile) {
+                display: block;
+            }
+
+            .list--item {
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: space-between;
+                text-align: center;
+                padding: 0 63px;
+
+                @include breakpoint(tablet-only) {
+                    padding: 0;
+                    width: calc(50% - 15px);
+                    margin-bottom: 30px;
+                }
+
+                @include breakpoint(mobile) {
+                    width: 65vw;
+                    display: block;
+                    margin: auto auto 55px;
+                    padding: 0;
+                }
+
+                &__img {
+                    height: 130px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    @include breakpoint(tablet-only) {
+                        height: 78px;
+                    }
+
+                    @include breakpoint(mobile) {
+                        height: auto;
+                        width: 100%;
+                        display: block;
+                    }
+
+                    img {
+                        align-self: center;
+
+                        @include breakpoint(tablet-only) {
+                            transform: scale(.6);
+                        }
+                    }
+                }
+
+                &__title {
+                    color: $color-orange;
+                    font: 400 28px/1.2 'garamond';
+                    margin: 10px 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: baseline;
+
+                    &__num {
+                        font-size: 48px;
+
+                        &:not(:last-child()) {
+                            margin-right: 6px;
+                        }
+                    }
+                }
+
+                &__desc {
+                    @include fonts(text);
+
+                    color: $color-white;
+
+                    @include breakpoint(tablet) {
+                        padding: 0 15px;
+                    }
+                }
+            }
+        }
+    }
+}

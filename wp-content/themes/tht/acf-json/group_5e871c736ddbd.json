@@ -1,0 +1,110 @@
+{
+    "key": "group_5e871c736ddbd",
+    "title": "PT | News",
+    "fields": [
+        {
+            "key": "field_5e871ca307ff5",
+            "label": "logo",
+            "name": "logo",
+            "type": "image",
+            "instructions": "Recommended Size:  182 X x85 \r\nAdd logo for the featured post",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ebbee0256ed9",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "the two lines effect will be obtained by adding a br tag between and \r\nTitle char limit is 60",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 60
+        },
+        {
+            "key": "field_5ebbee5356eda",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "Char limit is 250",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 250,
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5ebc2123d5b43",
+            "label": "Image",
+            "name": "image",
+            "type": "image",
+            "instructions": "recommend size : 342 x 257",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1589387743
+}

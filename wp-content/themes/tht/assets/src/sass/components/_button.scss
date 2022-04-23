@@ -1,0 +1,74 @@
+%btnOutline {
+    display: inline-flex;
+    width: auto;
+    flex-grow: 0;
+    flex-basis: 48px;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.2;
+    border: 1px solid;
+    padding: 8px 12px 8px 10px;
+
+    &:after {
+        content: "";
+        display: inline-block;
+    }
+}
+
+$btncolors: (
+    orange: ($color-orange, $color-blue-dk, $color-black),
+    blue: ($color-blue-dk, $color-orange, $color-white)
+);
+
+[class ^="btn"] {
+    @include fonts('btn');
+
+    min-width: 200px;
+}
+
+
+@mixin btn($colorA, $colorB, $colorC) {
+    @extend %btnOutline;
+
+    border-color: $colorA;
+    color: $colorA;
+
+    &:after {
+        @include sassvg('triangle', $colorA, 50%, 100%, no-repeat);
+
+        width: 11px;
+        height: 17px;
+        margin-left: 10px;
+    }
+
+    &:hover {
+        background-color: $colorA;
+        color: $colorC;
+
+        &:after {
+            @include sassvg('triangle-filled', $colorB, 50%, 100%, no-repeat);
+        }
+    }
+
+    &.is-alt:hover {
+        background: none;
+        color: $color-white;
+        border-color: $color-white;
+
+        &:after {
+            @include sassvg('triangle-filled', $colorA, 50%, 100%, no-repeat);
+        }
+    }
+}
+
+.btn {
+    &__outline {
+        @extend %btnOutline;
+
+        @each $color, $data in $btncolors {
+            &__#{$color} {
+                @include btn(nth($data, 1), nth($data, 2), nth($data, 3));
+            }
+        }
+    }
+}

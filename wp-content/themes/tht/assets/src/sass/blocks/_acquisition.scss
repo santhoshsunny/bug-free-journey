@@ -1,0 +1,67 @@
+#acquisitionDetails {
+    padding-top: 0;
+
+    .details {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .detail-block {
+            color: $color-white;
+            width: calc(33% - 9px);
+            margin-bottom: 14px;
+            border-bottom: 10px solid $color-orange;
+            padding: 40px 30px;
+
+            @include breakpoint(tablet-only) {
+                width: calc(50% - 6px);
+                padding: 20px 25px;
+                min-height: 250px;
+            }
+
+            @include breakpoint(mobile) {
+                width: 100%;
+            }
+
+            &__0 {
+                background-color: $color-blue-dk;
+            }
+
+            &__1 {
+                background-color: $color-grey-blue;
+            }
+
+            &__2 {
+                background-color: $color-grey-80;
+            }
+
+            &--title {
+                @extend %serif;
+
+                font-size: 26px;
+                font-weight: 700;
+                margin-bottom: 15px;
+
+                @include breakpoint(tablet) {
+                    font-size: 24px;
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+
+    .subtext {
+        max-width: 900px;
+        font-size: 14px;
+        line-height: 20px;
+        margin: 57px auto 0;
+
+        @include breakpoint(tablet) {
+            margin: 50px 40px;
+        }
+
+        @include breakpoint(mobile) {
+            margin: 40px 40px 15px;
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.select2 {
+    &-container {
+        width: auto!important;
+
+        &--default {
+            .select2 {
+                &-selection {
+                    &--single {
+                        height: auto;
+                        padding: 6px 30px 6px 12px;
+                        border-radius: 0;
+                        background-color: $color-white;
+                        border: 1px solid $color-orange;
+
+                        .select2-selection {
+                            &__rendered {
+                                padding: 0;
+                                margin-right: 40px;
+                            }
+
+                            &__arrow {
+                                height: 100%;
+                                top: 0;
+                                right: 0;
+                                width: 18px;
+                                margin-right: 10px;
+
+                                b {
+                                    //display: none;
+                                    @include sassvg('triangle-filled', $color-orange, 50%, 14px 18px);
+                                    transform: rotate(90deg);
+                                    border: none;
+                                    margin: 0;
+                                    display: block;
+                                    content: "";
+                                    height: 18px;
+                                    width: 14px;
+                                    left: 0;
+                                    top: calc(50% - 9px);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &-dropdown {
+                    border-radius: 0;
+                    border-color: $color-grey-20;
+                    margin-top: -5px;
+
+                    .select2-results {
+                        &__option {
+                            padding: 6px 16px;
+
+                            &--highlighted[aria-selected],
+                            &[aria-selected="true"] {
+                                background-color: $color-white;
+                                color: $color-blue-dk;
+                                font-weight: 600;
+                            }
+
+                            &s {
+                                padding: 10px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &--open {
+            &.select2-container--default {
+                .select2-selection--single {
+                    border-color: $color-blue-dk;
+
+                    .select2-selection__arrow b {
+                        transform: rotate(-90deg);
+                    }
+                }
+            }
+        }
+    }
+}

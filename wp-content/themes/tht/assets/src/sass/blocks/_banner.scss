@@ -1,0 +1,104 @@
+#page-banner {
+    height: 475px;
+    border-bottom: 8px solid $color-orange;
+    position: relative;
+    margin-bottom: 0;
+
+    + .block {
+        padding-top: 60px;
+
+        @include breakpoint(tablet-only) {
+            padding-top: 65px;
+          }
+
+          @include breakpoint(mobile) {
+            padding-top: 30px;
+          }
+    }
+
+    @include breakpoint(tablet-only) {
+        height: 280px;
+    }
+
+    @include breakpoint(mobile) {
+        height: auto;
+    }
+
+    .banner--img {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+
+        @include breakpoint(mobile) {
+            height: 100px;
+        }
+
+        img {
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+
+            @include centerImg();
+        }
+    }
+
+    .banner--meta {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+
+        @include breakpoint(mobile) {
+            position: relative;
+        }
+
+        &-content {
+            padding: 25px;
+            min-width: 570px;
+            background: $color-blue-dk;
+            display: inline-block;
+
+            @include breakpoint(tablet-only) {
+                min-width: 324px;
+                padding: 20px 15px;
+            }
+
+            @include breakpoint(mobile) {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .title {
+                @include fonts(banner);
+
+                color: $color-white;
+            }
+        }
+    }
+
+    #breadcrumbs {
+        @extend .desktop-only;
+
+        margin-bottom: 5px;
+        color: $color-white;
+
+        a {
+            &,
+            &:active,
+            &:visited {
+                color: $color-white;
+            }
+        }
+
+        .breadcrumb_separator {
+            margin: 0 12px;
+        }
+
+        .breadcrumb_last,
+        > span > span > span:last-child a {
+            color: $color-orange;
+        }
+    }
+}

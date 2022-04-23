@@ -1,0 +1,71 @@
+
+.ab-block-container {
+    @extend .wrapper;
+
+    padding-top: 57px;
+
+    @include breakpoint(tablet-only) {
+      padding-top: 54px;
+    }
+
+    @include breakpoint(mobile) {
+      padding-top: 35px;
+      margin-right: 0;
+
+      .ab-container-content > * {
+        &:not(.table-wrapper) {
+          margin-right: 20px;
+        }
+
+        &.table-wrapper {
+            position: relative;
+
+            table {
+                margin-right: 89px;
+            }
+
+            &:before {
+                display: block;
+                content: "";
+                background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #f0f0f0 100%);
+                width: 89px;
+                height: 100%;
+                right: 0;
+                position: absolute;
+            }
+
+            td, th {
+                white-space: nowrap;
+            }
+        }
+      }
+    }
+  
+    h2 {
+      @extend .block--title;
+  
+      text-align: center;
+    }
+  }
+  
+  .wp-block-table {
+    table {
+      border-collapse: collapse;
+    }
+  
+    &.is-style-stripes {
+      tbody tr {
+        &:nth-child(2n) {
+          background: $color-white;
+        }
+  
+        &:nth-child(2n+1) {
+          background: $color-grey-0;
+        }
+      }
+    }
+  
+    td {
+      border: 1px solid $color-blue-lt!important;
+    }
+  }

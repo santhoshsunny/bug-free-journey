@@ -1,0 +1,147 @@
+.tabcordion {
+    .tab--trigger {
+        cursor: pointer;
+        z-index: 2;
+        border-bottom: 4px solid transparent;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        color: $color-blue-dk;
+
+        .icon {
+            @include breakpoint(tablet-only) {
+                margin-right: 25px;
+
+                img {
+                    height: auto;
+                    max-width: 56px;
+                }
+            }
+
+            @include breakpoint(mobile) {
+                margin-right: 15px;
+
+                img {
+                    max-width: 35px;
+                    height: auto;
+                }
+            }
+        }
+
+        @include breakpoint(tablet-only) {
+            padding: 22px 20px;
+            font-size: 20px;
+        }
+
+        @include breakpoint(tablet) {
+            position: relative;
+            z-index: 2;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 12px 15px;
+            font-size: 16px;
+        }
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-evenly;
+        overflow: visible;
+
+        .tab--trigger {
+            padding: 20px 35px 50px;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            line-height: 26px;
+            margin-bottom: -30px;
+
+            @include breakpoint(desktop) {
+                &:first-child {
+                    margin-left: -35px;
+                }
+
+                &:last-child {
+                    margin-right: -35px;
+                }
+            }
+
+            &.is-active {
+                color: $color-white;
+                background: $color-grey-80;
+                border-color: $color-orange;
+            }
+
+            .icon {
+                height: 86px;
+                margin-bottom: 25px;
+            }
+        }
+    }
+
+    .tab--content {
+        display: none;
+        position: relative;
+
+        &__inner {
+            background-size: cover;
+            background-position: 50%;
+
+            @include breakpoint(desktop) {
+                padding: 128px 112px 103px;
+            }
+        }
+
+        .tab--trigger {
+            @include breakpoint(tablet) {
+                border-bottom: 1px solid $color-grey-40;
+            }
+        }
+
+        &.is-active {
+            display: block;
+
+            .tab--trigger {
+                color: $color-white;
+                background: $color-grey-80;
+                border-bottom: 4px solid $color-orange;
+            }
+        }
+
+        @include breakpoint(tablet) {
+            display: block;
+
+           &__inner {
+               max-height: 0;
+               overflow: hidden;
+               transition: $transition;
+           }
+
+           &.is-active .tab--content__inner {
+               margin-top: -40px;
+           }
+        }
+
+        @include breakpoint(mobile) {
+            &.is-active .tab--content__inner {
+                margin-top: -30px;
+            }
+        }
+
+        p {
+            max-width: 592px;
+            color: $color-white;
+
+            @include breakpoint(tablet) {
+                max-width: 100%;
+                padding: 95px 40px 60px;
+            }
+
+            @include breakpoint(mobile) {
+                padding-top: 65px;
+            }
+        }
+    }
+}

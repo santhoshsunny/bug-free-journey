@@ -1,0 +1,37 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+
+    @include breakpoint(tablet-only) {
+        margin-bottom: 60px;
+    }
+
+    @include breakpoint(mobile) {
+        margin-bottom: 40px;
+    }
+
+    .page-numbers {
+        color: $color-grey-80;
+        height: 34px;
+        width: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        &.current {
+            background: $color-blue-dk;
+            color: $color-white;
+        }
+
+        &.next,
+        &.prev {
+            font-size: 0;
+            @include sassvg('triangle-filled', $color-orange, 50%, 10px 16px);
+        }
+
+        &.prev {
+            transform: rotate(180deg);
+        }
+    }
+}

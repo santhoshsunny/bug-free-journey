@@ -1,0 +1,135 @@
+* {
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+@include font-face('nunito', '../../fonts/nunito/NunitoSans-Regular', 400);
+@include font-face('nunito', '../../fonts/nunito/NunitoSans-SemiBold', 600);
+@include font-face('nunito', '../../fonts/nunito/NunitoSans-ExtraBold', 700);
+
+
+@include font-face('garamond', '../../fonts/garamond/EBGaramond-Regular');
+
+%serif {
+  font-family: "garamond", serif;
+}
+
+%sansSerif {
+  font-family: "nunito", sans-serif;
+}
+
+@mixin fonts($type) {
+  @if ($type == nav) {
+    @extend %sansSerif;
+
+    font-weight: 600;
+    color: $color-black;
+  }
+  @if ($type == text) {
+    @extend %sansSerif;
+
+    font-size: 18px;
+    line-height: 25px;
+    color: $color-grey-80;
+
+    @include breakpoint(tablet) {
+      font-size: 16px;
+    }
+  }
+  @if ($type == intro-text) {
+    @extend %sansSerif;
+
+    font-size: 22px;
+    line-height: 32px;
+
+    @include breakpoint(tablet-only) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    @include breakpoint(mobile) {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+  }
+  @if ($type == headline1) {
+    @extend %serif;
+
+    font-size: 48px;
+    line-height: 52px;
+
+    @include breakpoint(tablet) {
+      font-size: 40px;
+    }
+
+    @include breakpoint(mobile) {
+      font-size: 34px;
+      line-height: 40px;
+    }
+  }
+  @if ($type == headline2) {
+    @extend %serif;
+
+    font-size: 32px;
+    line-height: 48px;
+
+    @include breakpoint(tablet-only) {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    @include breakpoint(mobile) {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+  }
+  @if ($type == headline3) {
+    @extend %sansSerif;
+
+    font-size: 20px;
+    line-height: 27px;
+  }
+  @if ($type == banner) {
+    @extend %serif;
+
+    font-size: 48px;
+    line-height: 52px;
+
+    @include breakpoint(tablet) {
+      font-size: 34px;
+    }
+  }
+  @if ($type == btn) {
+    font: 400 20px/26px 'garamond';
+
+    @include breakpoint(tablet) {
+      //font-size: 24px;
+    }
+  }
+  @if ($type == text-lg) {
+    @extend %sansSerif;
+
+    font-size: 22px;
+    line-height: 32px;
+
+    @include breakpoint(tablet) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    @include breakpoint(mobile) {
+      line-height: 22px;
+    }
+  }
+  @if ($type == subheading) {
+    @extend %sansSerif;
+
+    font-size: 24px;
+
+    @include breakpoint(tablet) {
+      font-size: 22px;
+    }
+  }
+}

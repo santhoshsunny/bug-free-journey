@@ -1,0 +1,126 @@
+.content--card {
+    display: flex;
+    border: 1px solid rgba(137, 137, 137, 0.3);
+    background: $color-white;
+    align-items: center;
+
+    @include breakpoint(tablet-only) {
+        padding-top: 18px;
+        padding-bottom: 20px;
+    }
+
+    @include breakpoint(mobile) {
+        flex-wrap: wrap;
+    }
+
+    .card--img {
+        width: 45%;
+        padding-top: 45px;
+        background-image: linear-gradient(to bottom, $color-grey-0 0%, $color-grey-0 calc(100% - 37px), $color-white calc(100% - 37px), $color-white 100%);
+
+        @include breakpoint(tablet-only) {
+            width: 47%;
+            padding-top: 28px;
+            background-image: linear-gradient(to bottom, $color-grey-0 0%, $color-grey-0 calc(100% - 28px), $color-white calc(100% - 28px), $color-white 100%);
+        }
+
+        @include breakpoint(mobile) {
+            width: 100%;
+            flex-basis: 100%;
+            padding-top: 24px;
+            background-image: linear-gradient(to bottom, $color-grey-0 0%, $color-grey-0 calc(100% - 20px), $color-white calc(100% - 20px), $color-white 100%);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .card--text {
+        max-width: 536px;
+        margin: auto;
+        flex: 1;
+        padding: 20px;
+
+        @include breakpoint(mobile) {
+            max-width: 100%;
+            padding: 30px 20px 20px;
+        }
+
+        .card--title {
+            @include fonts(headline2);
+
+            color: $color-blue-dk;
+            margin-bottom: 25px;
+
+            @include breakpoint(tablet-only) {
+                margin-bottom: 15px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-bottom: 30px;
+            }
+        }
+
+        .card--desc {
+            .cta {
+                margin-top: 25px;
+
+                @include breakpoint(tablet-only) {
+                    margin-top: 10px;
+                }
+
+                @include breakpoint(mobile) {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+
+    &.even {
+        .card--img {
+            padding-right: 45px;
+
+            @include breakpoint(tablet-only) {
+                padding-right: 28px;
+            }
+
+            @include breakpoint(mobile) {
+                padding-right: 24px;
+            }
+        }
+    }
+
+    &.odd {
+        .card--img {
+            order: 2;
+            padding-left: 45px;
+
+            @include breakpoint(tablet-only) {
+                padding-left: 28px;
+            }
+
+            @include breakpoint(mobile) {
+                order: 1;
+                padding-left: 0;
+                padding-right: 24px;
+            }
+        }
+
+        .card--text {
+            @include breakpoint(mobile) {
+                order: 2;
+            }
+        }
+    }
+
+    + .content--card {
+        margin-top: 40px;
+
+        @include breakpoint(mobile) {
+            margin-top: 20px;
+        }
+    }
+}

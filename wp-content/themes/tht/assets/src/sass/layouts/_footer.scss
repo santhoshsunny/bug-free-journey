@@ -1,0 +1,246 @@
+footer {
+    #get-in-touch {
+        padding-bottom: 0;
+
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 90px 0;
+
+            @include breakpoint(desktop) {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            @include breakpoint(tablet-only) {
+                padding: 30px 0;
+            }
+
+            @include breakpoint(mobile) {
+                padding: 40px 0;
+                flex-wrap: wrap;
+            }
+
+            .block-title {
+                @include fonts('headline1');
+
+                color: $color-white;
+
+                @include breakpoint(tablet-only) {
+                    line-height: 1;
+                    max-width: 100px;
+                }
+
+                @include breakpoint(mobile) {
+                    max-width: 100%;
+                    margin-bottom: 18px;
+                }
+            }
+
+            .block-description {
+                color: $color-white;
+                width: 58%;
+                max-width: 820px;
+
+                @include breakpoint(tablet) {
+                    width: auto;
+                    max-width: 415px;
+                }
+
+                @include breakpoint(mobile) {
+                    max-width: 100%;
+                    margin-bottom: 18px
+                }
+            }
+        }
+    }
+
+    .footer-menus {
+        padding: 45px 0;
+
+        @include breakpoint(tablet-only) {
+            padding: 35px 0 20px;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 35px 0 20px;
+        }
+
+        > .wrapper {
+            display: flex;
+            justify-content: space-evenly;
+
+            @include breakpoint(tablet) {
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .menu__left {
+                a.custom-logo-link {
+                    display: block;
+                    margin-bottom: 20px;
+
+                    @include breakpoint(tablet) {
+                        margin-bottom: 0;
+
+                        img {
+                            width: auto;
+                            height: 54px;
+                        }
+                    }
+
+                    + .icon--div {
+                        margin-top: 0;
+                    }
+                }
+            }
+
+            > [class^="menu-footer"] {
+                flex: 1;
+                margin-top: 40px;
+
+                @include breakpoint(tablet) {
+                    display: none;
+                }
+
+                > ul {
+                    display: flex;
+                    justify-content: space-evenly;
+
+                    > li {
+                        a {
+                            padding: 30px 20px;
+                            display: block;
+
+                            &:hover {
+                                color: $color-white;
+                                background: $color-blue-dk;
+                            }
+                        }
+                    }
+                }
+            }
+
+            ul {
+                li > a {
+                    @include fonts('nav');
+
+                    &:after {
+                        content: "";
+                        display: block;
+                        height: 2px;
+                        width: 70px;
+                        max-width: 100%;
+                        background: $color-orange;
+                        transition: $transition;
+                    }
+                }
+            }
+
+            .menu__right {
+                @include breakpoint(desktop) {
+                    margin-top: 70px;
+                }
+
+                ul {
+                    @include breakpoint(tablet) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .icon--div {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            color: $color-blue-dk;
+
+            @include breakpoint(tablet) {
+                display: inline-block;
+                margin-top: 0;
+                margin-left: 40px;
+
+                .icon--pin {
+                    display: block;
+                }
+            }
+
+            > .text {
+                @include breakpoint(tablet) {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                .text {
+                    text-decoration: underline;
+                }
+            }
+
+            .icon {
+                margin-right: 10px;
+            }
+
+            .icon--phone {
+                height: 16px;
+                width: 16px;
+
+                @include sassvg("phone", $color-orange, 0 50%, 100%);
+
+                @include breakpoint(tablet) {
+                    height: 29px;
+                    width: 29px;
+                }
+            }
+
+            .icon--fax {
+                height: 14px;
+                width: 16px;
+
+                @include sassvg("fax", $color-orange, 0 50%, 100%);
+            }
+
+            .icon--mail {
+                height: 16px;
+                width: 21px;
+
+                @include sassvg("mail", $color-orange, 0 50%, 100%);
+
+                @include breakpoint(tablet) {
+                    height: 22px;
+                    width: 35px;
+                }
+            }
+
+            .icon--pin {
+                height: 21px;
+                width: 16px;
+
+                @include sassvg("pin", $color-orange, 0 50%, 100%);
+
+                @include breakpoint(tablet) {
+                    height: 29px;
+                    width: 21px;
+                }
+            }
+        }
+    }
+
+    .footer-copy {
+        border-top: 1px solid $color-grey-40;
+        padding: 10px 0;
+        font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+
+        @include breakpoint(tablet) {
+            clear: both;
+        }
+
+        a {
+            color: $color-grey-80;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+#careersIntro {
+    figure {
+        position: relative;
+
+        img {
+            height: auto;
+            width: 100%;
+            display: block;
+        }
+
+        figcaption {
+            position: relative;
+            margin-top: -57px;
+            z-index: 2;
+            padding: 25px 30px;
+            background: $color-blue-dk;
+            color: $color-white;
+            width: calc(100% - 65px);
+
+            @include breakpoint(tablet-only) {
+             width: calc(100% - 32px);
+             padding: 16px;
+             font-size: 16px;
+             margin-top: -32px;
+            }
+
+            @include breakpoint(mobile) {
+                margin-top: -15px;
+                width: calc(100% - 15px);
+                padding: 12px;
+                font-size: 14px;
+                line-height: 1.2;
+            }
+        }
+    }
+}
