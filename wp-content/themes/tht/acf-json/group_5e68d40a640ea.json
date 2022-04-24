@@ -4,9 +4,9 @@
     "fields": [
         {
             "key": "field_5e68d7908955d",
-            "label": "Image",
-            "name": "image",
-            "type": "image",
+            "label": "Gallery",
+            "name": "gallery",
+            "type": "gallery",
             "instructions": "Recommended Size: 1920x610",
             "required": 0,
             "conditional_logic": 0,
@@ -17,7 +17,10 @@
             },
             "return_format": "id",
             "preview_size": "medium",
+            "insert": "append",
             "library": "all",
+            "min": "",
+            "max": "",
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -25,59 +28,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_5e68d7ba8955e",
-            "label": "Title",
-            "name": "title",
-            "type": "text",
-            "instructions": "the two lines effect will be obtained by adding a br tag between",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": 50
-        },
-        {
-            "key": "field_5e68d7f38955f",
-            "label": "Description",
-            "name": "description",
-            "type": "textarea",
-            "instructions": "Char Limit : 100",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": 100,
-            "rows": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_5e68d7ff89560",
-            "label": "CTA",
-            "name": "cta",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
         }
     ],
     "location": [
@@ -97,5 +47,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1591355893
+    "modified": 1650808953
 }

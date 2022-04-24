@@ -43,7 +43,7 @@ class Default_Reset_Functions
 		add_action('do_feed_atom_comments', array($this, 'default_disable_feed'), 1);
 		add_action('after_setup_theme', array($this, 'theme_setup'));
 		add_action('get_header', array($this, 'wp_maintenance_mode'));
-		add_action('allowed_block_types', array($this, 'allowed_block_types'), 10, 2);
+		add_action('allowed_block_types_all', array($this, 'allowed_block_types'), 10, 2);
 		add_action('wp_default_scripts', array($this, 'remove_jquery_migrate'));
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
 		add_action('wp_mail_failed', array($this, 'wp_mail_failed'), 10, 1);
