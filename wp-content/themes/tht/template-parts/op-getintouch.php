@@ -6,17 +6,17 @@ $cta = get_field('cta','option');
 
 <section id="get-in-touch" class="block background__full">
     <div class="wrapper">
-        <div class="block-title" data-aos="fade-right">
+        <div class="block-title aos-init aos-animate" data-aos="fade-right">
             <?php if ($title) : ?>
                 <?= $title; ?>
             <?php endif; ?>
         </div>
-        <div class="block-description" data-aos="fade-right" data-aos-delay="200">
+        <div class="block-description aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
             <?php if ($text) : ?>
                 <?= $text; ?>
             <?php endif; ?>
         </div>
-        <div data-aos="fade-right" data-aos-delay="200">
+        <div data-aos="fade-right" data-aos-delay="200" class="aos-init aos-animate">
             <?php if ($cta) : ?>
                 <?= wptht_get_cta_html($cta, 'btn__outline btn__outline__orange'); ?>
             <?php endif; ?>
