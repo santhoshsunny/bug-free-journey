@@ -362,6 +362,7 @@ class Default_Reset_Functions
 			'acf/cms-text-group',
 			'acf/cms-image-banner',
 			'acf/cms-paragraph',
+			'acf/homepage-gallery'
 		);
 
 		return $allowed_blocks;

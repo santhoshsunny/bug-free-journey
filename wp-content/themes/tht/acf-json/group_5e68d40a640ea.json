@@ -1,6 +1,6 @@
 {
     "key": "group_5e68d40a640ea",
-    "title": "Block | Homepage  Banner Block",
+    "title": "Block | Homepage  Gallery Block",
     "fields": [
         {
             "key": "field_5e68d7908955d",
@@ -35,7 +35,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/homepage-banner"
+                "value": "acf\/homepage-gallery"
             }
         ]
     ],
@@ -47,5 +47,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1650808953
+    "modified": 1650811124
 }

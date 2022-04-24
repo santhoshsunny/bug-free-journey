@@ -64,6 +64,27 @@ acf_register_block(
 
 acf_register_block(
 	array(
+		'name'				=> 'homepage-gallery',
+		'title'				=> __('Gallery', 'tht'),
+		'category'			=> 'homepage',
+		'keywords'		 => array('gallery', 'homepage'),
+		'icon' => array(
+			'src'        => 'format-image',
+			'background' => '#7e70af',
+			'foreground' => '#fff',
+		),
+		'post_types'     => array('page'),
+		'mode'           => 'edit',
+		'supports'       => array(
+			'align'    => array('full'),
+			'multiple' => false,
+		),
+		'render_callback'	=> 'wptht_acf_block_render_callback',
+	)
+);
+
+acf_register_block(
+	array(
 		'name'				=> 'homepage-statistics',
 		'title'				=> __(' Statistics', 'tht'),
 		'category'			=> 'homepage',
