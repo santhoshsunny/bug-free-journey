@@ -516,8 +516,8 @@ class Default_Reset_Functions
 		// Loads JavaScript file with functionality specific to custom.
 		// wp_enqueue_style( 'fonts', custom_fonts_url(), array(), null);
 		//wp_enqueue_style('style-select', get_template_directory_uri() . '/node_modules/select2/dist/css/select2.min.css', array(), filemtime(get_stylesheet_directory() . '/node_modules/select2/dist/css/select2.min.css'));
-		wp_enqueue_style('style', get_template_directory_uri() . '/assets/dist/css/main.min.css', array(), filemtime(get_stylesheet_directory() . '/assets/dist/css/main.min.css'));
-		wp_enqueue_script('script', get_template_directory_uri() . '/assets/dist/js/scripts.min.js', array('jquery'), filemtime(get_stylesheet_directory() . '/assets/dist/js/scripts.min.js'), true);
+		wp_enqueue_style('style', get_template_directory_uri() . '/assets/dist/css/main.css', array(), filemtime(get_stylesheet_directory() . '/assets/dist/css/main.css'));
+		wp_enqueue_script('script', get_template_directory_uri() . '/assets/dist/js/scripts.js', array('jquery'), filemtime(get_stylesheet_directory() . '/assets/dist/js/scripts.js'), true);
 
 		wp_localize_script(
 			'script',
