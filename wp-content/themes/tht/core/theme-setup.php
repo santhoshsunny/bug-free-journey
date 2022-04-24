@@ -28,11 +28,9 @@ class Default_Reset_Functions
 			'the_content',
 			'the_excerpt',
 			'widget_text',
-			'comment_text',
-			'comment_excerpt',
 			'acf/format_value'
 		);
-		// add_action( 'admin_init', array( $this, 'theme_admin_init' ) );
+
 		add_action('init', array($this, 'theme_init'));
 		add_action('widgets_init', array($this, 'widgets_init'));
 		add_action('pre_option_image_default_link_type', array($this, 'always_link_images_to_none'));
@@ -43,54 +41,37 @@ class Default_Reset_Functions
 		add_action('do_feed_atom', array($this, 'default_disable_feed'), 1);
 		add_action('do_feed_rss2_comments', array($this, 'default_disable_feed'), 1);
 		add_action('do_feed_atom_comments', array($this, 'default_disable_feed'), 1);
-		// add_action('init', array( $this, 'remove_comment_support' ), 100);
-		// add_action( 'admin_menu', array( $this, 'remove_comment_admin_menu' ), 100);
-		// add_action( 'wp_before_admin_bar_render', array( $this, 'remove_comment_admin_bar' ), 100);
-		//remove_action('wp_head', array($this, 'feed_links_extra'), 3);
-		//remove_action('wp_head', array($this, 'feed_links'), 2);
 		add_action('after_setup_theme', array($this, 'theme_setup'));
-		// add_action( 'admin_post_thumbnail_html', array( $this, 'add_featured_image_instruction' ), 10, 3 );
 		add_action('get_header', array($this, 'wp_maintenance_mode'));
 		add_action('allowed_block_types', array($this, 'allowed_block_types'), 10, 2);
 		add_action('wp_default_scripts', array($this, 'remove_jquery_migrate'));
 		add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
-		//add_action('acf/save_post', array($this, 'save_post'), 20);
 		add_action('wp_mail_failed', array($this, 'wp_mail_failed'), 10, 1);
-		//add_action('template_redirect', array($this, 'template_redirect'));
-		//add_action('pre_get_posts', array($this, 'pre_get_posts'));
-		add_action('admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-
 
 		remove_filter('the_title', 'wptexturize');
 		remove_filter('the_content', 'wptexturize');
 		remove_filter('the_excerpt', 'wptexturize');
 
-		// add_filter( 'query_vars', array( $this, 'query_vars' ) );
-		add_filter('tiny_mce_plugins', array($this, 'disable_emojis_tinymce'));
-		add_filter('wp_resource_hints', array($this, 'disable_emojis_remove_dns_prefetch'), 10, 2);
 		add_filter('run_wptexturize', '__return_false');
-		// add_filter( 'the_title', array( $this, 'fix_curly_quotes' ), 10, 1 );
-		// add_filter( 'the_content', array( $this, 'fix_curly_quotes' ), 10, 1 );
-		// add_filter( 'the_excerpt', array( $this, 'fix_curly_quotes' ), 10, 1 );
-		// add_filter( 'wp_insert_post_data', array( $this, 'modify_post_data' ), 99, 1 );
 		add_filter('the_excerpt', array($this, 'the_excerpt'), 21);
 		add_filter('excerpt_more', array($this, 'excerpt_more'), 21);
 		add_filter('wpcf7_form_elements', array($this, 'wpcf7_form_elements'));
-		add_action('init',array($this, 'wpbfm_wpcf7_file_upload'));
-		//add_filter('content_edit_pre', array($this, 'content_edit_pre'), 10, 2);
-		//add_filter('load-post-new.php', array($this, 'load_post_new'));
-		//add_filter('admin_head-post.php', array($this, 'admin_head_post'));
-		//add_filter('post_type_link', array($this, 'post_type_link'), 1, 3);
+		add_filter('wpseo_breadcrumb_separator', array($this, 'custom_separator'), 10, 1);
+		add_filter('wpseo_breadcrumb_single_link', array($this, 'remove_breadcrumb_title'), 10, 1);
 
-		add_filter( 'wpseo_breadcrumb_separator', array($this, 'custom_separator'), 10, 1);
-		add_filter('wpseo_breadcrumb_single_link', array($this, 'remove_breadcrumb_title'), 10, 1 );
+		/* Remove user list endpoint from rest api	*/
+		add_filter('rest_endpoints', function ($aryEndpoints) {
+			if (isset($aryEndpoints['/wp/v2/users'])) {
+				unset($aryEndpoints['/wp/v2/users']);
+			}
+			if (isset($aryEndpoints['/wp/v2/users/(?P<id>[\d]+)'])) {
+				unset($aryEndpoints['/wp/v2/users/(?P<id>[\d]+)']);
+			}
 
-		if (!defined('EAE_FILTER_PRIORITY')) {
-			define('EAE_FILTER_PRIORITY', 1000);
-		}
-		foreach ($email_encoder_filters as $filter) {
-			add_filter($filter, array($this, 'eae_encode_emails'), EAE_FILTER_PRIORITY);
-		}
+			return $aryEndpoints;
+		});
+
+		
 		if (defined('WP_DEBUG') && WP_DEBUG) {
 			add_action('wp_feed_options', function (&$feed) {
 				$feed->enable_cache(false);
@@ -100,19 +81,6 @@ class Default_Reset_Functions
 				return 60;
 			}, 10, 1);
 		}
-	}
-
-	/**
-	 * Removes editors and customizers
-	 */
-	public function theme_admin_init()
-	{
-		global $submenu;
-		unset($submenu['themes.php'][6]); // remove sub menu Customize
-		// unset( $submenu['themes.php'][7] ); // remove sub menu Widgets
-		unset($submenu['themes.php'][15]); // remove sub menu Header
-		unset($submenu['themes.php'][11]); // remove sub menu Editor
-		unset($submenu['plugins.php'][15]); // remove sub menu Editor
 	}
 
 	/**
@@ -138,32 +106,6 @@ class Default_Reset_Functions
 	}
 
 	/**
-	 * Removes page comment support.
-	 */
-	function remove_comment_support()
-	{
-		remove_post_type_support('post', 'comments');
-		remove_post_type_support('page', 'comments');
-	}
-
-	/**
-	 * Removes page comment admin option.
-	 */
-	function remove_comment_admin_menu()
-	{
-		remove_menu_page('edit-comments.php');
-	}
-
-	/**
-	 * Removes page comment admin option.
-	 */
-	function remove_comment_admin_bar()
-	{
-		global $wp_admin_bar;
-		$wp_admin_bar->remove_menu('comments');
-	}
-
-	/**
 	 * Message when somebody tries to access to rss
 	 */
 	public function default_disable_feed()
@@ -171,126 +113,6 @@ class Default_Reset_Functions
 		wp_die(('No feed available, please visit the <a href="' . esc_url(home_url('/')) . '">homepage</a>!'));
 	}
 
-	/**
-	 * Searches for plain email addresses in given $string and
-	 * encodes them (by default) with the help of eae_encode_str().
-	 *
-	 * Regular expression is based on based on John Gruber's Markdown.
-	 * http://daringfireball.net/projects/markdown/
-	 *
-	 * @param string $string Text with email addresses to encode
-	 *
-	 * @return string $string Given text with encoded email addresses
-	 */
-	public function eae_encode_emails($string)
-	{
-
-		// abort if `$string` isn't a string
-		if (!is_string($string)) {
-			return $string;
-		}
-
-		// abort if `eae_at_sign_check` is true and `$string` doesn't contain a @-sign
-		if (apply_filters('eae_at_sign_check', true) && strpos($string, '@') === false) {
-			return $string;
-		}
-
-		// override encoding function with the 'eae_method' filter
-		$method = apply_filters('eae_method', 'eae_encode_str');
-
-		// override regex pattern with the 'eae_regexp' filter
-		$regexp = apply_filters(
-			'eae_regexp',
-			'{
-			(?:mailto:)?
-			(?:
-				[-!#$%&*+/=?^_`.{|}~\w\x80-\xFF]+
-			|
-				".*?"
-			)
-			\@
-			(?:
-				[-a-z0-9\x80-\xFF]+(\.[-a-z0-9\x80-\xFF]+)*\.[a-z]+
-			|
-				\[[\d.a-fA-F:]+\]
-			)
-		}xi'
-		);
-		return preg_replace_callback(
-			$regexp,
-			// create_function(
-			// 	'$matches',
-			// 	'return ' . $method . '($matches[0]);'
-			// ),
-			array($this, 'eae_encode_str'),
-			$string
-		);
-	}
-
-	/**
-	 * Encodes each character of the given string as either a decimal
-	 * or hexadecimal entity, in the hopes of foiling most email address
-	 * harvesting bots.
-	 *
-	 * Based on Michel Fortin's PHP Markdown:
-	 *   http://michelf.com/projects/php-markdown/
-	 * Which is based on John Gruber's original Markdown:
-	 *   http://daringfireball.net/projects/markdown/
-	 * Whose code is based on a filter by Matthew Wickline, posted to
-	 * the BBEdit-Talk with some optimizations by Milian Wolff.
-	 *
-	 * @param string $string Text with email addresses to encode
-	 *
-	 * @return string $string Given text with encoded email addresses
-	 */
-	public function eae_encode_str($string)
-	{
-		$string = $string[0];
-		$chars = str_split($string);
-		$seed  = mt_rand(0, (int) abs(crc32($string) / strlen($string)));
-		foreach ($chars as $key => $char) {
-			$ord = ord($char);
-			if ($ord < 128) { // ignore non-ascii chars
-				$r = ($seed * (1 + $key)) % 100; // pseudo "random function"
-				if ($r > 60 && $char != '@') {;
-				} // plain character (not encoded), if not @-sign
-				else if ($r < 45) {
-					$chars[$key] = '&#x' . dechex($ord) . ';';
-				} // hexadecimal
-				else {
-					$chars[$key] = '&#' . $ord . ';';
-				} // decimal (ascii)
-			}
-		}
-		return implode('', $chars);
-	}
-
-	/**
-	 * Change curly quotes to straight quotes
-	 */
-	function fix_curly_quotes($text)
-	{
-		// $text = htmlspecialchars($text);
-
-		$curly_single_quotes = array('‘', '’', '&lsquo;', '&rsquo;');
-		$curly_double_quotes = array('“', '”', '&ldquo;', '&rdquo;');
-
-		$text = str_replace($curly_single_quotes, '\'', $text);
-		$text = str_replace($curly_double_quotes, '"', $text);
-
-		return $text;
-	}
-
-	/**
-	 * Apply fix_curly_quotes on post create/modify
-	 */
-	function modify_post_data($data)
-	{
-		$data['post_title'] =  $this->fix_curly_quotes($data['post_title']);
-		$data['post_content'] =  $this->fix_curly_quotes($data['post_content']);
-
-		return $data;
-	}
 
 	/**
 	 * theme_setup.
@@ -329,10 +151,9 @@ class Default_Reset_Functions
 		));
 
 		register_nav_menus(array(
-			'main-nav'           => __('Main Nav', 'dra'),
-			'user-nav'           => __('User Nav', 'dra'),
-			'footer'          => __('Footer', 'dra'),
-			'privacy-terms-nav'  => __('Privacy Policy and Terms Nav', 'dra'),
+			'main-nav'           => __('Main Nav', 'tht'),
+			'footer'          => __('Footer', 'tht'),
+			'privacy-terms-nav'  => __('Privacy Policy and Terms Nav', 'tht'),
 		));
 
 		/*
@@ -359,29 +180,26 @@ class Default_Reset_Functions
 
 		//add_image_size('homepage-hero', 950, 380, true);
 		add_image_size('homepage-banner', 1920, 610, true);
-		add_image_size('homepage-category',456,324,true);
+		add_image_size('homepage-category', 456, 324, true);
 		add_image_size('homepage-culture', 820, 520, true);
-		add_image_size('homepage-testimonial',820,520,true);
+		add_image_size('homepage-testimonial', 820, 520, true);
 		add_image_size('bg-image-banner', 1920, 475, true);
 		add_image_size('company-statement', 1920, 665, true);
-		add_image_size('company-staff',290,217,true);
-		add_image_size('company-culture',590,392,true);
-		add_image_size('sets-apart-banner',1420,435,true);
-		add_image_size('news-featured-image',1200,548,true);
-		add_image_size('news-featured-logo',182,85,true);
-		add_image_size('news-image',342,257,true);
-		add_image_size('career-intro-banner',1200,800,true);
-		add_image_size('card-image',497,346,true);
-		add_image_size('product-image',306,230,true);
-		add_image_size('portfolio-image',577,520,true);
-		add_image_size('sustainability-image',456,324,true);
-		add_image_size('gallery-image',820,520,true);
-
-
-
-
-
-
+		add_image_size('company-staff', 290, 217, true);
+		add_image_size('company-culture', 590, 392, true);
+		add_image_size('sets-apart-banner', 1420, 435, true);
+		add_image_size('news-featured-image', 1200, 548, true);
+		add_image_size('news-featured-logo', 182, 85, true);
+		add_image_size('news-image', 342, 257, true);
+		add_image_size('career-image-banner', 1200, 800, true);
+		add_image_size('career-inner-image', 170, 270, true);
+		add_image_size('card-image', 497, 346, true);
+		add_image_size('product-image', 306, 230, true);
+		add_image_size('portfolio-image', 577, 520, true);
+		add_image_size('sustainability-image', 375, 358, true);
+		add_image_size('gallery-image', 1197, 798, true);
+		add_image_size('gallery_featured',305,230,true);
+		add_image_size('single-news',500,500,true);
 	}
 
 	/**
@@ -398,13 +216,6 @@ class Default_Reset_Functions
 		remove_filter('comment_text_rss', 'wp_staticize_emoji');
 		remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
 
-		// Update core/table render block
-		register_block_type(
-			'core/table',
-			array(
-				'render_callback' => array($this, 'gb_table_block_render'),
-			)
-		);
 
 		// Custom logo.
 		$logo_width  = 141;
@@ -421,65 +232,11 @@ class Default_Reset_Functions
 		);
 	}
 
-	/**
-	 * admin_enqueue_scripts
-	 */
-	public function admin_enqueue_scripts()
-	{
-		/*
-		wp_enqueue_style('editor-style',
-			get_template_directory_uri() . '/assets/dist/css/editor.css',
-			array(),
-			filemtime(get_stylesheet_directory() . '/assets/dist/css/editor.css'));
-		*/
-	}
-
-	/**
-	 * Filter function used to remove the tinymce emoji plugin.
-	 *
-	 * @param array $plugins
-	 * @return array Difference betwen the two arrays
-	 */
-	public function disable_emojis_tinymce($plugins)
-	{
-		if (is_array($plugins)) {
-			return array_diff($plugins, array('wpemoji'));
-		} else {
-			return array();
-		}
-	}
-
-	/**
-	 * Remove emoji CDN hostname from DNS prefetching hints.
-	 *
-	 * @param array $urls URLs to print for resource hints.
-	 * @param string $relation_type The relation type the URLs are printed for.
-	 * @return array Difference betwen the two arrays.
-	 */
-	public function disable_emojis_remove_dns_prefetch($urls, $relation_type)
-	{
-		if ('dns-prefetch' == $relation_type) {
-			/** This filter is documented in wp-includes/formatting.php */
-			$emoji_svg_url = apply_filters('emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/');
-			$urls = array_diff($urls, array($emoji_svg_url));
-		}
-		return $urls;
-	}
-
-	public function add_featured_image_instruction($content, $thumbnail_id = null, $post = null)
-	{
-		$post = get_post($post);
-		if ($post->post_type === 'product') {
-			//return $content .= '<p>Recommended size: 265x425</p>';
-		}
-
-		return $content;
-	}
 
 	// Activate WordPress Maintenance Mode
 	public function wp_maintenance_mode()
 	{
-		if ( defined('WP_MAINTENANCE') && WP_MAINTENANCE ) {
+		if (defined('WP_MAINTENANCE') && WP_MAINTENANCE) {
 			if (!current_user_can('edit_themes') || !is_user_logged_in()) {
 				wp_die('<h1 style="color:red">Website under Maintenance</h1><br />We are performing scheduled maintenance. We will be back on-line shortly!');
 			}
@@ -582,10 +339,10 @@ class Default_Reset_Functions
 			'acf/homepage-statistics',
 			'acf/testimonial',
 			'acf/background-image-banner',
-			'acf/bgimage-content-banner',
+			'acf/backgroundimage-content-banner',
 			'acf/our-company-our-team',
 			'acf/our-company-our-culture',
-			'acf/bgcolor-content',
+			'acf/backgroundcolor-content',
 			'acf/intro',
 			'acf/what-we-do-slider',
 			'acf/what-we-do-set-apart',
@@ -601,13 +358,10 @@ class Default_Reset_Functions
 			'acf/opportunities-links',
 			'acf/contactform-address',
 			'acf/contact-form',
-			'acf/cms-special-text',
-			'acf/cms-group',
+			'acf/cms-special-links',
+			'acf/cms-text-group',
 			'acf/cms-image-banner',
-
-
-
-
+			'acf/cms-paragraph',
 		);
 
 		return $allowed_blocks;
@@ -628,6 +382,12 @@ class Default_Reset_Functions
 			$script = $scripts->registered['jquery'];
 			if ($script->deps) { // Check whether the script has any dependencies
 				$script->deps = array_diff($script->deps, array('jquery-migrate'));
+			}
+		}
+
+		if (is_page_template('template-portfolio.php')) {
+			if (!is_admin() && isset($scripts->registered['jquery'])) {
+				$scripts->registered = array_diff($scripts->registered, array('jquery'));
 			}
 		}
 	}
@@ -756,15 +516,16 @@ class Default_Reset_Functions
 		// Loads JavaScript file with functionality specific to custom.
 		// wp_enqueue_style( 'fonts', custom_fonts_url(), array(), null);
 		//wp_enqueue_style('style-select', get_template_directory_uri() . '/node_modules/select2/dist/css/select2.min.css', array(), filemtime(get_stylesheet_directory() . '/node_modules/select2/dist/css/select2.min.css'));
-		wp_enqueue_style('style', get_template_directory_uri() . '/assets/dist/css/main.css', array(), filemtime(get_stylesheet_directory() . '/assets/dist/css/main.css'));
-		wp_enqueue_script('script', get_template_directory_uri() . '/assets/dist/js/scripts.js', array('jquery'), filemtime(get_stylesheet_directory() . '/assets/dist/js/scripts.js'), true);
+		wp_enqueue_style('style', get_template_directory_uri() . '/assets/dist/css/main.min.css', array(), filemtime(get_stylesheet_directory() . '/assets/dist/css/main.min.css'));
+		wp_enqueue_script('script', get_template_directory_uri() . '/assets/dist/js/scripts.min.js', array('jquery'), filemtime(get_stylesheet_directory() . '/assets/dist/js/scripts.min.js'), true);
 
 		wp_localize_script(
 			'script',
-			'wpbfmjs', array(
-				'ajax_url' => admin_url( 'admin-ajax.php' ),
-		  	)
-	  	);
+			'wpthtjs',
+			array(
+				'ajax_url' => admin_url('admin-ajax.php'),
+			)
+		);
 	}
 
 	/**
@@ -775,9 +536,9 @@ class Default_Reset_Functions
 	public function widgets_init()
 	{
 		register_sidebar(array(
-			'name'          => __('Main Sidebar', 'dra'),
+			'name'          => __('Main Sidebar', 'tht'),
 			'id'            => 'sidebar-1',
-			'description'   => __('Widgets in this area will be shown on all posts and pages.', 'dra'),
+			'description'   => __('Widgets in this area will be shown on all posts and pages.', 'tht'),
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2 class="widgettitle">',
@@ -819,23 +580,11 @@ class Default_Reset_Functions
 		return $content;
 	}
 
-	// replace cf7 form submit with button
-	public function wpbfm_wpcf7_file_upload() {
-		if(function_exists('wpcf7_remove_form_tag')) {
-			wpcf7_remove_form_tag('file');
-			wpcf7_remove_form_tag('file*');
-			//remove_action( 'admin_init', 'wpcf7_add_tag_generator_file', 55 );
-
-			$bfm_cf7_module = TEMPLATEPATH . '/cf7/file.php';
-            require_once $bfm_cf7_module;
-		}
-	}
-
 	/**
 	 * Stores wp_mail errors in debug.log.
 	 * Requires WP_DEBUG == true
 	 */
-	public function wp_mail_failed( $wp_error )
+	public function wp_mail_failed($wp_error)
 	{
 		return error_log(print_r($wp_error, true));
 	}
@@ -843,7 +592,8 @@ class Default_Reset_Functions
 	/**
 	 * Wraps yoast breadcrumb separator for styling
 	 */
-	public function custom_separator( $separator ) {
+	public function custom_separator($separator)
+	{
 		return '<span class="breadcrumb_separator">' . $separator . '</span>';
 	}
 
@@ -853,8 +603,9 @@ class Default_Reset_Functions
 	* Credit: David @ https://generatepress.com/forums/topic/how-to-hide-the-title-part-in-the-breadcrumb-im-using-yoast-seo/#post-614239
 	* Last Tested: Apr 11 2020 using Yoast SEO 13.4.1 on WordPress 5.4
 	*/
-	public function remove_breadcrumb_title( $link_output) {
-		if(strpos( $link_output, 'breadcrumb_last' ) !== false ) {
+	public function remove_breadcrumb_title($link_output)
+	{
+		if (strpos($link_output, 'breadcrumb_last') !== false) {
 			$link_output = '';
 		}
 		return $link_output;
@@ -863,9 +614,9 @@ class Default_Reset_Functions
 
 new Default_Reset_Functions();
 
-define( 'CORE_FN_FOLDER', get_template_directory() . '/core/functions' );
-define( 'CORE_ACF_FOLDER', get_template_directory() . '/core/acf' );
-define( 'CORE_CPT_FOLDER', get_template_directory() . '/core/post-types' );
+define('CORE_FN_FOLDER', get_template_directory() . '/core/functions');
+define('CORE_ACF_FOLDER', get_template_directory() . '/core/acf');
+define('CORE_CPT_FOLDER', get_template_directory() . '/core/post-types');
 
 
 include_once CORE_ACF_FOLDER . '/acf-setup.php';
@@ -878,6 +629,4 @@ include_once CORE_CPT_FOLDER . '/taxonomies.php';
 
 /* Theme Setup | Functions */
 include_once CORE_FN_FOLDER . '/acf-cf-contactform7.php';
-include_once CORE_FN_FOLDER . '/cron.php';
-include_once CORE_FN_FOLDER . '/format-phone.php';
 include_once CORE_FN_FOLDER . '/menu-walker.php';

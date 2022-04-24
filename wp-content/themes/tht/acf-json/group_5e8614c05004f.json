@@ -68,6 +68,25 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5fd8892a31e5e",
+            "label": "Funds Disclaimer",
+            "name": "funds_disclaimer",
+            "type": "textarea",
+            "instructions": "Char Limit : 300",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 300,
+            "rows": "",
+            "new_lines": "br"
         }
     ],
     "location": [
@@ -87,5 +106,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1589906756
+    "modified": 1608026464
 }

@@ -1,4 +1,4 @@
-var modal =  (function($, window, document, undefined) {
+var modal = (function ($, window, document, undefined) {
     'use strict';
 
     var $trigger,
@@ -6,27 +6,31 @@ var modal =  (function($, window, document, undefined) {
         $modal;
 
     var events = function () {
-        $($trigger).on('click', function(e) {
-            e.preventDefault();
+        $('body').on('click', function (e) {
+            var clicked = $(e.target);
 
-            console.log(this);
+            if (clicked.hasClass('modal--trigger')) {
+                $content = $(clicked).closest('.modal--content');
+                var cloned = $('<div>').append($content.clone()).html();
 
-            $content = $(this).closest('.modal--content');
-            var cloned = $('<div>').append($content.clone()).html();
-
-            populateModal(cloned);
-            openModal();
-        });
-
-        $(document).on('click', '#modal--close', function() {
-            closeModal();
+                populateModal(cloned);
+                openModal();
+            } else if(clicked.hasClass('gallery--trigger')) {
+                return;
+            } else {
+                if ($(this).hasClass('modal-open')) {
+                    if (!(clicked.closest('#modal--inner').length > 0)) {
+                        closeModal();
+                    }
+                }
+            }
         });
     }
 
     function populateModal(content) {
-        var closeBtn = '<div id="modal--close"/>';
+        var closeBtn = '<div id="modal--close"/></div>';
 
-        $modal.append('<div class="wrapper">'+ closeBtn + '<div id="modal--inner">' + content + '</div></div>').addClass('is-open');
+        $modal.append('<div class="wrapper">' + closeBtn + '<div id="modal--inner">' + content + '</div>').addClass('is-open');
     }
 
     function openModal() {
@@ -43,19 +47,20 @@ var modal =  (function($, window, document, undefined) {
             this.setVars();
             events();
         },
-        getModal: function(){
+        getModal: function () {
             return this;
         },
-        setVars: function() {
+        setVars: function () {
             $trigger = $('.modal--trigger');
             $modal = $('#modal');
         },
-        populate: function($content){
+        populate: function ($content) {
+            console.log($content);
             populateModal($content);
         },
-        open: function(){
+        open: function () {
             openModal();
         }
     }
-  })(jQuery, window, document);
-  site.queue(modal);
+})(jQuery, window, document);
+site.queue(modal);

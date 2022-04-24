@@ -4,7 +4,7 @@
     position: relative;
     margin-top: -8px;
     z-index: 2;
-    border-bottom: 8px solid $color-orange;
+    //border-bottom: 8px solid $color-orange;
 
     @include breakpoint(mobile) {
         height: 88px;
@@ -48,13 +48,26 @@
         padding: 45px;
         position: relative;
 
+        &:after{
+            //content: "";
+            //border-bottom-color: $color-orange !important;
+            //width: 0; 
+            //height: 0; 
+            //border-left: 20px solid transparent;
+            //border-right: 20px solid transparent;
+            //border-bottom: 15px solid #f00;
+            //position: absolute;
+            //bottom: 0;
+           // right: calc( 50% - 20px);
+        }
+        
         @include breakpoint(tablet-only) {
             text-align: center;
             width: 30%;
         }
 
         @include breakpoint(mobile) {
-            padding: 25px 20px;
+            padding: 25px 10px;
             font-size: 22px;
             width: auto;
             height: 80px;
@@ -64,6 +77,10 @@
 
         a, a:visited, a:active {
             color: $color-white;
+            
+            @include breakpoint(mobile) {
+                font-size: 18px;
+            }
         }
 
         &.active {
@@ -74,19 +91,21 @@
             }
 
             &:after {
-                @include sassvg('triangle-filled', $color-orange, 50%, 14px 48px);
-
                 content: "";
                 display: block;
-                height: 48px;
-                width: 14px;
-                transform: rotate(-90deg);
                 position: absolute;
-                bottom: -19px;
+                bottom: 0;
                 left: calc(50% - 24px);
+                height: 0;
+                width: 0;
+                border-style: solid;
+                border-width: 0 24px 14px 24px;
+                border-color: transparent transparent $color-orange transparent;
+
 
                 @include breakpoint(mobile) {
-                    left: calc(50% - 7px);
+                    left: calc(50% - 18.5px);
+                    border-width: 0 18.5px 11px 18.5px;
                 }
             }
         }
@@ -103,6 +122,17 @@
         @include breakpoint(mobile) {
             padding-top: 30px;
             padding-bottom: 30px;
+        }
+    }
+    .banner--border {
+        height: 8px;
+        width: 100%;
+        z-index: 3;
+        position: relative;
+        background: $color-orange;
+        display: block;
+        @include breakpoint(mobile) {
+            top: 72px;
         }
     }
 }

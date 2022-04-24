@@ -7,7 +7,7 @@
       <?php if($lists):?>
          <div class="details wrapper">
             <?php foreach ($lists as $k=> $list) : ?>
-               <div class="detail-block detail-block__<?= ($k % 3); ?>">
+               <div class="detail-block detail-block__<?= ($k % 3); ?>" data-aos="fade">
                   <?php if ($list['title']) : ?>
                      <div class="detail-block--title">
                         <?= ($list['title']); ?>

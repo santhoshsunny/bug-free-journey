@@ -3,7 +3,7 @@
 acf_register_block(
 	array(
 		'name'				=> 'contactform-address',
-		'title'				=> __('Contact Form Address', 'Dra'),
+		'title'				=> __('Contact Form Address', 'tht'),
 		'category'			=> 'contactform',
 		'keywords'		 => array('image', 'banner'),
 		'icon' => array(
@@ -17,14 +17,14 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 
 acf_register_block(
 	array(
 		'name'				=> 'contact-form',
-		'title'				=> __('Contact Form', 'Dra'),
+		'title'				=> __('Contact Form', 'tht'),
 		'category'			=> 'contactform',
 		'keywords'		 => array('form', 'cf7'),
 		'icon' => array(
@@ -38,6 +38,6 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );

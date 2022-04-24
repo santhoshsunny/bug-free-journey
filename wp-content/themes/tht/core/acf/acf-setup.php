@@ -8,7 +8,7 @@ if (!defined('WP_DEBUG') || (defined('WP_DEBUG') && !WP_DEBUG)) {
  * ACF Setup Functions
  *
  */
-function wpbfm_acf_setup()
+function wptht_acf_setup()
 {
 	if (function_exists('acf_register_block')) {
 		// register all blocks
@@ -17,68 +17,68 @@ function wpbfm_acf_setup()
 		}
 	}
 }
-add_action('init', 'wpbfm_acf_setup');
+add_action('init', 'wptht_acf_setup');
 
 /**
  * Register Block Categories
  *
  */
-function wpbfm_block_category($categories, $post)
+function wptht_block_category($categories, $post)
 {
 	return array_merge(
 		$categories,
 		array(
 			array(
 				'slug' => 'homepage',
-				'title' => __('Homepage', 'Dra'),
+				'title' => __('Homepage', 'tht'),
 			),
 			array(
 				'slug' => 'our_company',
-				'title' => __('Our Company', 'Dra'),
+				'title' => __('Our Company', 'tht'),
 			),
 			array(
 				'slug' => 'contactform',
-				'title' => __('Contact Form', 'Dra'),
+				'title' => __('Contact Form', 'tht'),
 			),
 			array(
 				'slug' => 'careers',
-				'title' => __('Careers', 'Dra'),
+				'title' => __('Careers', 'tht'),
 			),
 			array(
 				'slug' => 'opportunities',
-				'title' => __('Opportunities', 'Dra'),
+				'title' => __('Opportunities', 'tht'),
 			),
 
 			array(
 				'slug' => 'cms',
-				'title' => __('CMS', 'Dra'),
+				'title' => __('General CMS', 'tht'),
 			),
 			array(
 				'slug' => 'what_we_do',
-				'title' => __('What we do', 'Dra'),
+				'title' => __('What we do', 'tht'),
 			),
 			array(
 				'slug' => 'investment',
-				'title' => __('Investments', 'Dra'),
+				'title' => __('Investments', 'tht'),
 			),
 			array(
 				'slug' => 'news',
-				'title' => __('News', 'Dra'),
+				'title' => __('News', 'tht'),
 			),
 			array(
-				'slug' => 'general-blocks',
-				'title' => __('General-Blocks', 'Dra'),
+				'slug' => 'common_blocks',
+				'title' => __('Common Blocks-Custom', 'tht'),
 			),
 		)
 	);
 }
-add_filter('block_categories', 'wpbfm_block_category', 10, 2);
+add_filter('block_categories', 'wptht_block_category', 10, 2);
 
 /**
  * Register Block Render callback
  *
  */
-function wpbfm_acf_block_render_callback($block)
+function wptht_acf_block_render_callback($block)
 {
 	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
 	$slug = str_replace('acf/', '', $block['name']);
@@ -104,6 +104,38 @@ if (function_exists('acf_add_options_page')) {
 				'redirect'   => true,
 			)
 		);
+		acf_add_options_sub_page(
+			array(
+				'page_title'  => 'Get-In-Touch',
+				'menu_title'  => 'Pre-Footer',
+				'menu_slug'   => 'pre-footer-options',
+				'parent_slug' => 'theme-settings',
+			)
+		);
 
+		acf_add_options_sub_page(
+			array(
+				'page_title'  => 'Footer-Address',
+				'menu_title'  => 'Footer-Address',
+				'menu_slug'   => 'footer-address',
+				'parent_slug' => 'theme-settings',
+			)
+		);
+		acf_add_options_sub_page(
+			array(
+				'page_title'  => 'News-Detail-Banner',
+				'menu_title'  => 'News-Detail',
+				'menu_slug'   => 'news-detail-options',
+				'parent_slug' => 'theme-settings',
+			)
+		);
+		acf_add_options_sub_page(
+			array(
+				'page_title'  => 'GMT Tags',
+				'menu_title'  => 'GMT Tags',
+				'menu_slug'   => 'gmt-tags',
+				'parent_slug' => 'theme-settings',
+			)
+		);
 	}
 }

@@ -1,4 +1,8 @@
 #statistics {
+    @include breakpoint(desktop) {
+        padding-top: 0;
+    }
+
     .statistics-- {
         &title {
             @include fonts('headline1');
@@ -19,6 +23,7 @@
         &list {
             display: flex;
             align-content: stretch;
+            justify-content: space-evenly;
 
             @include breakpoint(tablet-only) {
                 flex-wrap: wrap;
@@ -31,12 +36,11 @@
             .list--item {
                 display: inline-flex;
                 flex-direction: column;
-                justify-content: space-between;
+                //justify-content: space-between;
                 text-align: center;
-                padding: 0 63px;
-
+                //padding: 0 63px;
+                width: 25%;
                 @include breakpoint(tablet-only) {
-                    padding: 0;
                     width: calc(50% - 15px);
                     margin-bottom: 30px;
                 }
@@ -45,11 +49,10 @@
                     width: 65vw;
                     display: block;
                     margin: auto auto 55px;
-                    padding: 0;
                 }
 
                 &__img {
-                    height: 130px;
+                    height: 130px;                   
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -65,10 +68,13 @@
                     }
 
                     img {
-                        align-self: center;
-
+                        align-self: center;                        
                         @include breakpoint(tablet-only) {
                             transform: scale(.6);
+                        }                        
+                        @media only screen and (min-width:1025px) {
+                        height: 130px !important;
+                        width: inherit !important;
                         }
                     }
                 }
@@ -83,6 +89,8 @@
 
                     &__num {
                         font-size: 48px;
+                        display: flex;
+                        align-items: baseline;
 
                         &:not(:last-child()) {
                             margin-right: 6px;
@@ -94,7 +102,8 @@
                     @include fonts(text);
 
                     color: $color-white;
-
+                    padding-left: 15px;
+                    padding-right: 15px;
                     @include breakpoint(tablet) {
                         padding: 0 15px;
                     }
@@ -102,4 +111,15 @@
             }
         }
     }
+}
+
+.odometer.odometer-auto-theme,
+.odometer.odometer-theme-default {
+    font-family: inherit;
+    line-height: auto;
+}
+
+.odometer-inside {
+    display: flex;
+    align-items: center;
 }

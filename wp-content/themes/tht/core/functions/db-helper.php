@@ -10,9 +10,9 @@
  */
 function var_dump_database() {
     global $wpdb;
-    wpbfm_write_log( 'var_dump_database()' );
-    wpbfm_write_log( $wpdb->num_queries );
-    wpbfm_write_log( $wpdb->queries );
+    wptht_write_log( 'var_dump_database()' );
+    wptht_write_log( $wpdb->num_queries );
+    wptht_write_log( $wpdb->queries );
 }
 
 add_action('shutdown', function() {

@@ -4,13 +4,15 @@
 
     text-align: center;
 
+    @include breakpoint(tablet) {
+        .wrapper__xs {
+            margin: 0 auto;
+        }
+    }
+
     @include breakpoint(mobile) {
         padding-left: 15px;
         padding-right: 15px;
-
-        [class^='wrapper'] {
-            margin: 0 auto;
-        }
     }
 
     .block {

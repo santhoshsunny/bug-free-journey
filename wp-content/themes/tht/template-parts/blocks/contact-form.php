@@ -6,9 +6,9 @@
 <div id="careerForm" class="block wrapper__xs">
     <?php if($text): ?>
         <div class="form-headline">
-            <p class="form-headline__description">
+            <h2 class="form-headline__description" data-aos="fade-down">
                 <?= $text; ?>
-            </p>
+            </h2>
         </div>
     <?php endif; ?>
     <?php if($form): ?>

@@ -1,6 +1,6 @@
 {
     "key": "group_5e85cbafc3d71",
-    "title": "Block | Cms Special Text Block",
+    "title": "Block | CMS Special Links Block",
     "fields": [
         {
             "key": "field_5e85cbd68c93e",
@@ -44,7 +44,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cms-special-text"
+                "value": "acf\/cms-special-links"
             }
         ]
     ],
@@ -56,5 +56,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1589189366
+    "modified": 1591605350
 }

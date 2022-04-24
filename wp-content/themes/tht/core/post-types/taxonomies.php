@@ -11,8 +11,8 @@ $taxonomies = array(
 
 
 	array(
-        'name'       => __('Category', 'dra'),
-		'singular_name' => __('Category', 'dra'),
+        'name'       => __('Category', 'tht'),
+		'singular_name' => __('Category', 'tht'),
 		'tax_name' => 'product_cat',
         'post_types' => array( 'products' ),
         'args'          => array(

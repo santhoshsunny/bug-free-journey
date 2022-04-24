@@ -3,7 +3,7 @@
 acf_register_block(
 	array(
 		'name'				=> 'news-featured-post',
-		'title'				=> __('Featured Post', 'Dra'),
+		'title'				=> __('Featured Post', 'tht'),
 		'category'			=> 'news',
 		'keywords'		 => array('featured', 'post'),
 		'icon' => array(
@@ -17,6 +17,6 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );

@@ -6,11 +6,10 @@ var gallery = (function ($, window, document, undefined) {
     var $_modal;
 
 	var events = function () {
-        $galleryTrigger.on('click', function(){
+        $galleryTrigger.on('click touchstart', function(){
             $galleryImgs = $(this).next('.gallery--items');
 
             var cloned = $('<div>').append($galleryImgs.clone()).html();
-
             $_modal.populate(cloned);
             $_modal.open();
 
@@ -42,3 +41,5 @@ var gallery = (function ($, window, document, undefined) {
 	}
 })(jQuery, window, document);
 site.queue(gallery);
+
+

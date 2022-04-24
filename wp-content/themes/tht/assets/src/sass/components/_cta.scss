@@ -35,6 +35,20 @@
 
 .cta {
     &__a {
-        @include cta($color-blue-dk, $color-orange, $color-blue-lt);
+        @include cta($color-blue-dk, $color-orange, $color-blue-lt);       
     }
+}
+
+#img-text, #homecats, .card--desc{
+    .cta {
+    &__a {
+        @include cta($color-blue-dk, $color-orange, $color-blue-lt);
+        border:1px solid #1c3a60;
+        padding: 10px;        
+        &:hover{
+            color: #fff;
+            background-color: #1c3a60;
+        }
+    }
+}
 }

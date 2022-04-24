@@ -7,7 +7,7 @@
             "label": "Text",
             "name": "text",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Char Limit : 200",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -53,5 +53,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588571882
+    "modified": 1591355893
 }

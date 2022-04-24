@@ -6,7 +6,7 @@
  *
  * @return url string
  */
-function wpbfm_get_current_url() {
+function wptht_get_current_url() {
     return home_url( $_SERVER['REQUEST_URI'] );
     // global $wp;
     // return add_query_arg( $_SERVER['QUERY_STRING'], '', home_url( $wp->request ) );
@@ -17,7 +17,7 @@ function wpbfm_get_current_url() {
  * Requires WP_DEBUG === true
  *
  */
-function wpbfm_write_log($log) {
+function wptht_write_log($log) {
     if (true === WP_DEBUG) {
         if (is_array($log) || is_object($log)) {
             error_log(print_r($log, true));
@@ -32,7 +32,7 @@ function wpbfm_write_log($log) {
  *
  * @return (array|WP_Term|WP_Error|null) | False if no location is provided
  */
-function wpbfm_get_menu_by_location($location) {
+function wptht_get_menu_by_location($location) {
     if( empty($location) ) return false;
 
     $locations = get_nav_menu_locations();
@@ -48,13 +48,13 @@ function wpbfm_get_menu_by_location($location) {
  *
  * @return html markup
  */
-function wpbfm_print_social_networks() {
+function wptht_print_social_networks() {
     $ge_social = get_field('ge_social', 'option');
     $links = '';
     foreach ($ge_social as $key => $social_link) {
-        $links.= wpbfm_get_social_cta_html($social_link['link']);
+        $links.= wptht_get_social_cta_html($social_link['link']);
     }
-    return ($links) ? sprintf( '<h3>%s</h3><ul>%s</ul>', __('Connect With Us', 'dra'), $links) : '';
+    return ($links) ? sprintf( '<h3>%s</h3><ul>%s</ul>', __('Connect With Us', 'tht'), $links) : '';
 }
 
 /**
@@ -62,14 +62,14 @@ function wpbfm_print_social_networks() {
  *
  * @return html markup | false if cta not provided
  */
-function wpbfm_get_cta_html($cta, $css_classes = '') {
+function wptht_get_cta_html($cta, $css_classes = '') {
     if ( $cta ):
         return sprintf(
             '<a href="%s" class="%s" %s>%s</a>',
             esc_url( $cta['url'] ),
             $css_classes,
             !empty($cta['target']) ? 'target="_new" nofollow rel="noreferrer" rel="noopener"' : '',
-            !empty($cta['title']) ? $cta['title'] : __('Text Not Provided', 'dra')
+            !empty($cta['title']) ? $cta['title'] : __('Text Not Provided', 'tht')
         );
     endif;
 
@@ -81,14 +81,14 @@ function wpbfm_get_cta_html($cta, $css_classes = '') {
  *
  * @return html markup | false if cta not provided
  */
-function wpbfm_get_social_cta_html($socialcta, $css_classes = '') {
+function wptht_get_social_cta_html($socialcta, $css_classes = '') {
     if ( $socialcta ):
         return sprintf(
             '<a href="%s" class="%s" %s><div class="icon-%s"></div></a>',
             esc_url( $socialcta['url'] ),
             $css_classes,
             !empty($socialcta['target']) ? 'target="_new" nofollow' : '',
-            !empty($socialcta['title']) ? $socialcta['title'] : __('Text Not Provided', 'dra')
+            !empty($socialcta['title']) ? $socialcta['title'] : __('Text Not Provided', 'tht')
         );
     endif;
 
@@ -100,7 +100,7 @@ function wpbfm_get_social_cta_html($socialcta, $css_classes = '') {
  * Prints Guttenberg Registered Blocks
  *
  */
-function wpbfm_print_wp_registered_blocks() {
+function wptht_print_wp_registered_blocks() {
     $block_types = WP_Block_Type_Registry::get_instance()->get_all_registered();
     echo '<pre>';
     var_dump($block_types);
@@ -113,7 +113,7 @@ function wpbfm_print_wp_registered_blocks() {
  *
  * @return html markup
  */
-function wpbfm_get_img_html( int $image_id, string $image_size = 'full', string $css_class = '') {
+function wptht_get_img_html( int $image_id, string $image_size = 'full', string $css_class = '') {
     if ($image_id):
         $img_src    = wp_get_attachment_image_src($image_id, $image_size);
         $img_srcset = wp_get_attachment_image_srcset($image_id, $image_size);
@@ -121,7 +121,7 @@ function wpbfm_get_img_html( int $image_id, string $image_size = 'full', string 
         $img_alt    = get_post_meta($image_id, '_wp_attachment_image_alt', true);
     else:
         // get_image_size('post-featured');
-        $image_size = wpbfm_get_image_sizes($image_size);
+        $image_size = wptht_get_image_sizes($image_size);
         if( !$image_size ) {
             $image_size = array('width' => 300, 'height' => 300, );
         }
@@ -170,11 +170,11 @@ function wpbfm_get_img_html( int $image_id, string $image_size = 'full', string 
     // );
 }
 
-function wpbfm_get_img_src( int $image_id, string $image_size = 'full') {
+function wptht_get_img_src( int $image_id, string $image_size = 'full') {
     if ($image_id):
         $img_src    = wp_get_attachment_image_src($image_id, $image_size);
     else:
-        $image_size = wpbfm_get_image_sizes($image_size);
+        $image_size = wptht_get_image_sizes($image_size);
         if( !$image_size ) {
             $image_size = array('width' => 300, 'height' => 300, );
         }
@@ -192,7 +192,7 @@ function wpbfm_get_img_src( int $image_id, string $image_size = 'full') {
 /**
  * Get information about available image sizes
  */
-function wpbfm_get_image_sizes( $size = '' )
+function wptht_get_image_sizes( $size = '' )
 {
     $wp_additional_image_sizes = wp_get_additional_image_sizes();
     $sizes = array();
@@ -225,7 +225,7 @@ function wpbfm_get_image_sizes( $size = '' )
 /**
  * Returns placeholder div
  */
-function wpbfm_get_img_placeholder() {
+function wptht_get_img_placeholder() {
     return '<div class="placeholderImg">' . wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full' ) . '</div>';
 }
 
@@ -234,7 +234,7 @@ function wpbfm_get_img_placeholder() {
  *
  * @return string
  */
-function wpbfm_slugify($text) {
+function wptht_slugify($text) {
     // replace non letter or digits by -
     $text = preg_replace('~[^\pL\d]+~u', '-', $text);
 
@@ -267,7 +267,7 @@ function wpbfm_slugify($text) {
  *
  * @return array
  */
-function wpbfm_get_taxonomy_hierarchy( $term, $taxonomy = 'category' ) {
+function wptht_get_taxonomy_hierarchy( $term, $taxonomy = 'category' ) {
     if ( empty( $term ) ) {
         return new WP_Error( 'invalid_term', __( 'Empty Term.' ) );
     }
@@ -292,10 +292,10 @@ function wpbfm_get_taxonomy_hierarchy( $term, $taxonomy = 'category' ) {
  *
  * @return array | false
  */
-function wpbfm_get_the_excerpt_max_charlength($post_id, $charlength) {
+function wptht_get_the_excerpt_max_charlength($post_id, $charlength) {
     $excerpt = get_the_excerpt($post_id);
 
-    return wpbfm_substring($excerpt, $charlength);
+    return wptht_substring($excerpt, $charlength);
 }
 
 /**
@@ -305,7 +305,7 @@ function wpbfm_get_the_excerpt_max_charlength($post_id, $charlength) {
  *
  * @return array | false
  */
-function wpbfm_substring($text, $charlength) {
+function wptht_substring($text, $charlength) {
     $charlength++;
     $out = $text;
 	if ( mb_strlen( $text ) > $charlength ) {
@@ -326,11 +326,11 @@ function wpbfm_substring($text, $charlength) {
  * Reset Email content type to standard text/html
  *
  */
-function wpbfm_set_email_content_type() {
+function wptht_set_email_content_type() {
     return 'text/html';
 }
 
-function wpbfm_get_attachment_by_post_name( $post_name ) {
+function wptht_get_attachment_by_post_name( $post_name ) {
     $withoutExt = preg_replace('/\\.[^.\\s]{3,4}$/', '', trim( $post_name ) );
     $args = array(
         'posts_per_page' => 1,
@@ -353,27 +353,27 @@ function wpbfm_get_attachment_by_post_name( $post_name ) {
  *
  * @return true | false if fail
  */
-function wpbfm_time_since( $since ) {
+function wptht_time_since( $since ) {
     // Array of time period chunks.
     $chunks = array(
         /* translators: 1: The number of years in an interval of time. */
-        array( 60 * 60 * 24 * 365, _n_noop( '%s year', '%s years', 'dra' ) ),
+        array( 60 * 60 * 24 * 365, _n_noop( '%s year', '%s years', 'tht' ) ),
         /* translators: 1: The number of months in an interval of time. */
-        array( 60 * 60 * 24 * 30, _n_noop( '%s month', '%s months', 'dra' ) ),
+        array( 60 * 60 * 24 * 30, _n_noop( '%s month', '%s months', 'tht' ) ),
         /* translators: 1: The number of weeks in an interval of time. */
-        array( 60 * 60 * 24 * 7, _n_noop( '%s week', '%s weeks', 'dra' ) ),
+        array( 60 * 60 * 24 * 7, _n_noop( '%s week', '%s weeks', 'tht' ) ),
         /* translators: 1: The number of days in an interval of time. */
-        array( 60 * 60 * 24, _n_noop( '%s day', '%s days', 'dra' ) ),
+        array( 60 * 60 * 24, _n_noop( '%s day', '%s days', 'tht' ) ),
         /* translators: 1: The number of hours in an interval of time. */
-        array( 60 * 60, _n_noop( '%s hour', '%s hours', 'dra' ) ),
+        array( 60 * 60, _n_noop( '%s hour', '%s hours', 'tht' ) ),
         /* translators: 1: The number of minutes in an interval of time. */
-        array( 60, _n_noop( '%s minute', '%s minutes', 'dra' ) ),
+        array( 60, _n_noop( '%s minute', '%s minutes', 'tht' ) ),
         /* translators: 1: The number of seconds in an interval of time. */
-        array( 1, _n_noop( '%s second', '%s seconds', 'dra' ) ),
+        array( 1, _n_noop( '%s second', '%s seconds', 'tht' ) ),
     );
 
     if ( $since <= 0 ) {
-        return __( 'now', 'dra' );
+        return __( 'now', 'tht' );
     }
 
     /**
@@ -397,7 +397,7 @@ function wpbfm_time_since( $since ) {
     }
 
     // Set output var.
-    $output = sprintf( translate_nooped_plural( $name, $count, 'dra' ), $count );
+    $output = sprintf( translate_nooped_plural( $name, $count, 'tht' ), $count );
 
     // Step two: the second chunk.
     if ( $i + 1 < $j ) {
@@ -406,7 +406,7 @@ function wpbfm_time_since( $since ) {
         $count2 = floor( ( $since - ( $seconds * $count ) ) / $seconds2 );
         if ( $count2 ) {
             // Add to output var.
-            $output .= ' ' . sprintf( translate_nooped_plural( $name2, $count2, 'dra' ), $count2 );
+            $output .= ' ' . sprintf( translate_nooped_plural( $name2, $count2, 'tht' ), $count2 );
         }
     }
 

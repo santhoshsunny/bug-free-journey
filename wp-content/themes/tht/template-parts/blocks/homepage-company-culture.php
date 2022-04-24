@@ -2,6 +2,7 @@
 <?php
 $image =  get_field('image');
 $cta = get_field('cta');
+$delay = ($image) ? 150 : 0;
 ?>
 
 <!-- NOTE FROM FE: Use class 'content__left' or 'content__right' below to align the content block -->
@@ -10,11 +11,11 @@ $cta = get_field('cta');
 <div id="img-text" class="block content__right background__bottom">
     <div class="wrapper">
         <?php if ($image) : ?>
-            <div class="img-text--img">
-                <?= wpbfm_get_img_html($image, 'homepage-culture'); ?>
+            <div class="img-text--img" data-aos="fade-right">
+                <?= wptht_get_img_html($image, 'full'); ?>
             </div>
         <?php endif; ?>
-        <div class="img-text--content">
+        <div class="img-text--content" data-aos="fade-zoom-in" data-delay="<?= $delay;?>">
             <div class="img-text--content__top">
                 <div class="img-text--title">
                     <?= get_field('title'); ?>
@@ -25,7 +26,7 @@ $cta = get_field('cta');
             </div>
             <div class="img-text--content__bottom">
                 <?php if ($cta) :
-                    echo wpbfm_get_cta_html($cta, 'cta__a');
+                    echo wptht_get_cta_html($cta, 'cta__a');
                 endif; ?>
             </div>
         </div>

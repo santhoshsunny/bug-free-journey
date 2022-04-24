@@ -1,6 +1,6 @@
 {
     "key": "group_5e8aabaee6e84",
-    "title": "Block  | BackGround Image Banner Block",
+    "title": "Block  | Background Image Banner Block",
     "fields": [
         {
             "key": "field_5e8aabed2f84e",
@@ -44,5 +44,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588571882
+    "modified": 1591355893
 }

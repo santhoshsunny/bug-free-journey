@@ -8,6 +8,10 @@
     .slick-slide {
         display: flex;
 
+        @include breakpoint(mobile) {
+            display: block;
+        }
+
         img {
             height: auto;
             width: 100%;
@@ -106,4 +110,8 @@
             }
         }
     }
+}
+
+.slick-list {
+    background: #fff;
 }

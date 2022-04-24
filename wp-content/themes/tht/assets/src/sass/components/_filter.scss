@@ -35,6 +35,10 @@
 
         .select2-container {
             min-width: 190px;
+
+            @include breakpoint(mobile) {
+                width: 200px!important;
+            }
         }
     }
 }

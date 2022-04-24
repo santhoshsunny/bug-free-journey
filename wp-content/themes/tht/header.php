@@ -1,5 +1,5 @@
 <?php
-echo (WP_DEBUG) ? '<!-- BEGIN: [ ' . basename(__FILE__) . ' ]   -->' :'';
+echo (WP_DEBUG) ? '<!-- BEGIN: [ ' . basename(__FILE__) . ' ]   -->' : '';
 /**
  * The header for our theme
  *
@@ -12,18 +12,20 @@ echo (WP_DEBUG) ? '<!-- BEGIN: [ ' . basename(__FILE__) . ' ]   -->' :'';
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
-    <base href="/">
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<base href="/">
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+	<!-- <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon/apple-touch-icon.png"> -->
+	<link rel="shortcut icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.ico">
+	<?php wp_head(); ?>
 
-    <?php wp_head(); ?>
 
-<body <?php body_class(); ?> >
-
-<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'dra_advisors'); ?></a>
+<body <?php body_class(); ?>>
+	<div id="page" class="site">
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'tht'); ?></a>
 
 		<header id="masthead" class="site-header">
 			<div class="site-branding">
@@ -46,19 +48,9 @@ echo (WP_DEBUG) ? '<!-- BEGIN: [ ' . basename(__FILE__) . ' ]   -->' :'';
 					)
 				);
 				?>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'user-nav',
-						'menu_id' => 'user-nav',
-						'menu_class' => 'n-header-buttons',
-						'container' => ''
-					)
-				);
-				?>
 			</nav><!-- #site-navigation -->
 		</header><!-- #masthead -->
 
 		<div id="content" class="site-content">
 
-<?php echo (WP_DEBUG) ? '<!-- END: [ ' . basename(__FILE__) . ' ]   -->' :''; ?>
+			<?php echo (WP_DEBUG) ? '<!-- END: [ ' . basename(__FILE__) . ' ]   -->' : ''; ?>

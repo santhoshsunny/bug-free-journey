@@ -4,10 +4,10 @@
 <?php if ($lists) : ?>
 	<div class="block wrapper">
 		<?php foreach ($lists as $k => $list): ?>
-			<div class="content--card <?= ($k % 2 == 0)? 'even' : 'odd';?>">
+			<div class="content--card <?= ($k % 2 == 0)? 'even' : 'odd';?>" id="card--<?=$k;?>" data-aos="fade-down">
 				<?php if ($list['image']) : ?>
-					<div class="card--img">
-						<?= wpbfm_get_img_html($list['image'], 'card-image'); ?>
+					<div class="card--img" data-aos="zoom-in" data-aos-delay="500" data-aos-anchor="#card--<?=$k;?>">
+						<?= wptht_get_img_html($list['image'], 'card-image'); ?>
 					</div>
 				<?php endif; ?>
 				<div class="card--text">
@@ -18,9 +18,9 @@
 					<?php endif; ?>
 					<?php if ($list['description']) : ?>
 						<div class="card--desc">
-							<?= $list['description']; ?>
+							<p><?= $list['description']; ?></p>
 							<?php if ($list['cta']) : ?>
-								<?= wpbfm_get_cta_html($list['cta'], 'cta cta__a'); ?>
+								<?= wptht_get_cta_html($list['cta'], 'cta cta__a'); ?>
 							<?php endif; ?>
 						</div>
 					<?php endif; ?>

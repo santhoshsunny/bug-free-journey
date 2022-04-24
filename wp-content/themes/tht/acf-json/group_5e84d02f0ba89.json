@@ -7,7 +7,7 @@
             "label": "Title",
             "name": "title",
             "type": "text",
-            "instructions": "",
+            "instructions": "Char Limit : 50",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -69,7 +69,7 @@
                     "label": "Title",
                     "name": "title",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Char Limit : 50",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -88,7 +88,7 @@
                     "label": "Description",
                     "name": "description",
                     "type": "wysiwyg",
-                    "instructions": "",
+                    "instructions": "Char limit : 600 .\r\ncharacters over 600  will not be visible on front end.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -122,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588571882
+    "modified": 1607444778
 }

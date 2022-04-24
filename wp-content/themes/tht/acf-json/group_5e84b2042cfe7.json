@@ -1,6 +1,6 @@
 {
     "key": "group_5e84b2042cfe7",
-    "title": "TAX | Category ",
+    "title": "TAX | Category",
     "fields": [
         {
             "key": "field_5e84b6aa62b2e",
@@ -44,5 +44,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588571882
+    "modified": 1591355893
 }

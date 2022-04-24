@@ -15,21 +15,29 @@
         height: 100%;
         position: absolute;
         width: 100%;
+        background-position: 50%;
+        background-attachment: fixed;
+        background-size: cover;
 
+        &.ios-banner {
+            background-attachment: unset;
+        }
         @include breakpoint(tablet) {
             position: relative;
             height: calc(100% - 50px);
+            background-attachment: unset;
         }
 
         @include breakpoint(mobile) {
-            height: auto;
+            height: 100px;
         }
 
         img {
-            width:auto;
+           /* width:auto;
             height: 100%;
             margin-left: 50%;
             transform: translateX(-50%);
+            */
         }
     }
 
@@ -60,7 +68,7 @@
         align-self: baseline;
 
         @include breakpoint(mobile) {
-            min-width: 320px;
+            width: 100%;
         }
     }
 }
@@ -100,6 +108,10 @@
     &title {
         @include breakpoint(tablet) {
             margin-right: 10px;
+            max-width: 100%;
+            br{
+                display: none;
+            }
         }
     }
 

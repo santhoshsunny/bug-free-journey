@@ -13,7 +13,7 @@
                         <?php endif; ?>
                         <?php if ($list['description']) : ?>
                             <dd>
-                                <?= ($list['description']); ?>
+                                <span class="animate aFade--top"> <?= ($list['description']); ?></span>
                             </dd>
                         <?php endif; ?>
                 <?php endforeach; ?>

@@ -7,7 +7,7 @@
             "label": "Title",
             "name": "title",
             "type": "text",
-            "instructions": "",
+            "instructions": "Char Limit : 50",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -26,7 +26,7 @@
             "label": "Content",
             "name": "content",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Char Limit : 800",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -36,7 +36,7 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": 300,
+            "maxlength": 800,
             "rows": "",
             "new_lines": ""
         },
@@ -45,7 +45,7 @@
             "label": "Job Title",
             "name": "job_title",
             "type": "text",
-            "instructions": "",
+            "instructions": "Char Limit : 50",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -116,5 +116,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588571882
+    "modified": 1591355893
 }

@@ -1,0 +1,43 @@
+{
+    "key": "group_5ef3365dad591",
+    "title": "Block | CMS Paragraph Block",
+    "fields": [
+        {
+            "key": "field_5ef3367a9c0a3",
+            "label": "Paragraph",
+            "name": "paragraph",
+            "type": "textarea",
+            "instructions": "Char Limit : 400",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 400,
+            "rows": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cms-paragraph"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1592997527
+}

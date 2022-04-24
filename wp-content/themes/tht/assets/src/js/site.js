@@ -11,6 +11,14 @@ var site = (function($, window, document, undefined) {
       $('html, body').animate({ scrollTop: $el.offset().top}, 1000);
     }
 
+    var isIos = function () {
+  
+        var iosT = /iPad|iPhone|iPod/.test(navigator.platform)
+        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        return iosT;
+
+    }
+
     var getBreakpoint = function () {
       var w = $(window).width();
 
@@ -29,8 +37,55 @@ var site = (function($, window, document, undefined) {
 
     }
 
+    var stripNonNumeric = (str) => {
+	    str += '';
+	    var rgx = /^\d|\.|-$/;
+	    var out = '';
+	    for( var i = 0; i < str.length; i++ ) {
+		    if(rgx.test(str.charAt(i))) {
+			    if( !( ( str.charAt(i) == '.' && out.indexOf( '.' ) != -1 ) ||
+					  ( str.charAt(i) == '-' && out.length != 0 ) ) ){
+			        out += str.charAt(i);
+			      }
+		    }
+	    }
+	    return out;
+    }
+
+    var disableBackground = function() {
+      if(isIos()){
+        $('#homebanner').find('.banner--img').addClass('ios-banner');
+      }
+    }
+
+    var disableBgEffect = function() {
+      var cpage = window.location.href;
+        if(cpage.indexOf('contact-us') !== -1) {
+          var temp = cpage.split('/');
+          if(temp[4] !== '') {
+            $('#page-banner').find('.banner--img').addClass('detail-banner');
+          }
+        }
+    }
+
+    var addCommas = (nStr) => {
+      nStr += '';
+      var x = nStr.split('.');
+      var x1 = x[0];
+      var x2 = x.length > 1 ? '.' + x[1] : '';
+      var rgx = /(\d+)(\d{3})/;
+
+      while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+      }
+
+      return x1 + x2;
+    }
+
     return {
       init: function () {
+        disableBackground();
+        disableBgEffect();
         //polyfills();
         //bindEvents();
       },
@@ -55,6 +110,14 @@ var site = (function($, window, document, undefined) {
 
       getBreakpoint: function () {
         return getBreakpoint();
+      },
+
+      stripNonNumeric: function (str) {
+        return stripNonNumeric(str);
+      },
+
+      addCommas: function (nStr) {
+        return addCommas(nStr);
       },
 
       breakpoints: {

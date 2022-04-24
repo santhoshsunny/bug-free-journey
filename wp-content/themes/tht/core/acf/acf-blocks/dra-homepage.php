@@ -3,7 +3,7 @@
 acf_register_block(
 	array(
 		'name'				=> 'homepage-banner',
-		'title'				=> __('Homepage  Banner', 'Dra'),
+		'title'				=> __('Homepage  Banner', 'tht'),
 		'category'			=> 'homepage',
 		'keywords'		 => array( 'banner'),
 		'icon' => array(
@@ -17,13 +17,13 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 acf_register_block(
 	array(
 		'name'				=> 'homepage-our-investments',
-		'title'				=> __('Our Investments', 'Dra'),
+		'title'				=> __('Our Investments', 'tht'),
 		'category'			=> 'homepage',
 		'keywords'		 => array('investment'),
 		'icon' => array(
@@ -37,14 +37,14 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 
 acf_register_block(
 	array(
 		'name'				=> 'homepage-company-culture',
-		'title'				=> __('Company culture', 'Dra'),
+		'title'				=> __('Company culture', 'tht'),
 		'category'			=> 'homepage',
 		'keywords'		 => array('company', 'culture'),
 		'icon' => array(
@@ -58,14 +58,14 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 
 acf_register_block(
 	array(
 		'name'				=> 'homepage-statistics',
-		'title'				=> __(' Statistics', 'Dra'),
+		'title'				=> __(' Statistics', 'tht'),
 		'category'			=> 'homepage',
 		'keywords'		 => array( 'statistics'),
 		'icon' => array(
@@ -79,7 +79,7 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 

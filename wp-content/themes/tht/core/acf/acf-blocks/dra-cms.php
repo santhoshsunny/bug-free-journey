@@ -2,10 +2,10 @@
 
 acf_register_block(
 	array(
-		'name'				=> 'cms-special-text',
-		'title'				=> __('Special Text', 'Dra'),
+		'name'				=> 'cms-special-links',
+		'title'				=> __('Special Links', 'tht'),
 		'category'			=> 'cms',
-		'keywords'		 => array('special', 'text'),
+		'keywords'		 => array('special', 'links'),
 		'icon' => array(
 			'src'        => 'format-image',
 			'background' => '#7e70af',
@@ -17,13 +17,13 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 acf_register_block(
 	array(
-		'name'				=> 'cms-group',
-		'title'				=> __('CMS Group', 'Dra'),
+		'name'				=> 'cms-text-group',
+		'title'				=> __('Text Group', 'tht'),
 		'category'			=> 'cms',
 		'keywords'		 => array('group'),
 		'icon' => array(
@@ -37,14 +37,14 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 
 acf_register_block(
 	array(
 		'name'				=> 'cms-image-banner',
-		'title'				=> __('Image Banner', 'Dra'),
+		'title'				=> __('Image Banner', 'tht'),
 		'category'			=> 'cms',
 		'keywords'		 => array('image'),
 		'icon' => array(
@@ -58,6 +58,27 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
+	)
+);
+
+acf_register_block(
+	array(
+		'name'				=> 'cms-paragraph',
+		'title'				=> __('Paragraph Block', 'tht'),
+		'category'			=> 'cms',
+		'keywords'		 => array('image'),
+		'icon' => array(
+			'src'        => 'format-image',
+			'background' => '#7e70af',
+			'foreground' => '#fff',
+		),
+		'post_types'     => array('page'),
+		'mode'           => 'edit',
+		'supports'       => array(
+			'align'    => array('full'),
+			'multiple' => false,
+		),
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );

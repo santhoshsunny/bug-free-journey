@@ -7,7 +7,7 @@
             "label": "Property Name",
             "name": "property_name",
             "type": "text",
-            "instructions": "",
+            "instructions": "Char Limit : 50",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -84,6 +84,44 @@
             "maxlength": 50
         },
         {
+            "key": "field_5fbf849fdc1ee",
+            "label": "Contact Details",
+            "name": "contact_details",
+            "type": "textarea",
+            "instructions": "Char Limit: 200",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 200,
+            "rows": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_5fbf84c2dc1ef",
+            "label": "File",
+            "name": "file",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf"
+        },
+        {
             "key": "field_5e985e3bb198e",
             "label": "Gallery",
             "name": "gallery",
@@ -128,5 +166,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1589906756
+    "modified": 1606387784
 }

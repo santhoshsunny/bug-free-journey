@@ -92,6 +92,14 @@ header.site-header {
                         padding: 0 25px;
                     }
 
+                    @include breakpoint(tablet) {
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            color: $color-orange;
+                        }
+                    }
+
                     &:after {
                         content: "";
                         display: block;
@@ -101,7 +109,10 @@ header.site-header {
                         background: $color-orange;
                     }
 
-                    + ul {
+                }
+                > .sub-menu {
+
+                    @include breakpoint(desktop) {
                         display: block;
                         max-height: 0;
                         overflow: hidden;
@@ -113,42 +124,47 @@ header.site-header {
                         background: $color-grey-0;
                         padding-left: 25px;
                         padding-right: 25px;
-                        width: 100vw;
+                        width: 100%;
                         max-width: 200px;
+                    }
+                    
 
-                        &:before {
-                            content: "";
-                            display: none;
-                            height: 18px;
-                            width: 11px;
-                            transform: rotate(90deg);
-                            position: absolute;
-                            top: -5px;
-                            left: 35px;
+                    &:before {
+                        content: none;
+                        display: none;
+                        height: 18px;
+                        width: 11px;
+                        transform: rotate(90deg);
+                        position: absolute;
+                        top: -5px;
+                        left: 35px;
 
-                            @include sassvg('triangle-filled', $color-blue-dk, 0 50%, 100%);
+                        @include sassvg('triangle-filled', $color-blue-dk, 0 50%, 100%);
+                    }
+
+                    li > a {
+                        padding: 0;
+                        color: $color-black;
+                        font-weight: normal;
+                        font-size: 16px;
+
+                        @include breakpoint(tablet) {
+                            color: $color-white;
                         }
 
-                        li > a {
-                            padding: 0;
-                            color: $color-black;
-                            font-weight: normal;
-                            font-size: 16px;
-
-                            &:after {
-                                display: none;
-                            }
+                        &:after {
+                            display: none;
                         }
                     }
                 }
 
                 @include breakpoint(desktop) {
                     &:hover {
-                        a + ul {
+                        > .sub-menu {
                             max-height: 100%;
                             padding-top: 15px;
                             padding-bottom: 25px;
-                            border-top: 6px solid $color-blue-dk;
+                            //border-top: 6px solid $color-blue-dk;
 
                             &:before {
                                 display: block;
@@ -161,6 +177,41 @@ header.site-header {
                                     color: $color-blue-dk;
                                     font-weight: 600;
                                 }
+                            }
+                        }
+                    }
+                }
+
+                &.nolink.menu-item-has-children {
+                    cursor: pointer;
+
+                    > .sub-menu {
+                        margin-bottom: 30px;
+                        max-width: 100%;
+
+                        > li > a {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    &.is-expanded {
+                        > a {
+                            color: $color-orange;
+                            margin-bottom: 10px;
+                        }
+
+                        > .sub-menu {
+                            padding: 10px 25px;
+                            max-height: 100vh;
+                            position: relative;
+
+                            > li:not(:last-child()) {
+                                margin-bottom: 10px;
+                            }
+
+                            li > a:hover {
+                                font-weight: bold;
+                                color: $color-black;
                             }
                         }
                     }
@@ -182,10 +233,12 @@ header.site-header {
                     a:before {
                         content: "";
                         display: inline-block;
-                        height: 18px;
-                        width: 18px;
-                        margin-right: 7px;
-
+                        height: 20px;
+                        width: 16px;
+                        margin-right: 5px;
+                        background-size: 16px 20px !important;
+                        position: relative;
+                        top: 4px;
                         @include sassvg(#{$name}, $color-orange, 0 50%, #{$width} #{$height});
                     }
                 }
@@ -224,6 +277,9 @@ header.site-header {
                         margin-bottom: 40px;
                         text-align: center;
                         font-size: 20px;
+                        @include breakpoint(mobile) {
+                            padding-right: 10px;
+                        }
 
                         &:after {
                             display: none;
@@ -275,6 +331,77 @@ header.site-header {
     }
 }
 
+.expand {
+    font-size: 25px;
+    color: #ef8a22;
+    display: none !important;
+    width: 5px;
+    height: 20px;
+    overflow: hidden;
+    @include breakpoint(tablet) {
+        display: inline-block !important;
+    }
+    &:before {
+        content: '+';
+        font-size: 25px;
+        font-weight: bold;
+        color: #ef8a22;
+        position: absolute;
+        top: 0px;
+    }
+    &:after {
+        content: '';
+        font-size: 25px;
+        font-weight: bold;
+        color: #ef8a22;
+        position: absolute;
+        top: 0px;
+    }
+    &.minus {
+        &:before {
+            content: '' !important;
+        }
+        &:after {
+            content: '-';
+            color: #fff;
+        }
+    }
+}
+
+
+@include breakpoint(tablet){
+    #main-nav{
+        text-align: center;
+        li{
+            a{
+                display: inline-block !important;
+                width: auto !important;
+                //margin-bottom: 25px !important;
+            }
+            a+span{
+                display: inline-block;
+            }
+             .sub-menu{
+                max-height: inherit !important;
+                position: relative !important;
+                 margin-bottom: 20px;
+                 margin-top: -20px;
+                display: none;
+                 a{
+                     font-size: 16px !important;
+                     margin-bottom: 8px !important; 
+                 }
+            }
+            
+            .minus+.sub-menu{
+                display: block;
+            }
+        }       
+    }
+}
+     
+     
+     
 $hamburger-layer-border-radius: 0;
 $hamburger-layer-height: 5px;
 $hamburger-layer-spacing: 8px;

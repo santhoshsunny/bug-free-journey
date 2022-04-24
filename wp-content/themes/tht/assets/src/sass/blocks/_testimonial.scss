@@ -1,43 +1,35 @@
 #testimonials {
     .slide-content {
         flex: 1;
-        background-image: linear-gradient($color-grey-0 calc(100% - 67px), rgba(255,255,255,100) calc(100% - 67px), rgba(255,255,255,100) 100%);
-        max-height: calc(100% - 67px);
+        background-image: linear-gradient($color-grey-0 calc(100%), rgba(255, 255, 255, 100) calc(100%), rgba(255, 255, 255, 100) 100%);
+        max-height: calc(100%);
         padding: 40px;
-
         @include breakpoint(desktop) {
             width: 41%;
         }
-
         @include breakpoint(tablet) {
             max-height: none;
             background-image: none;
             background: $color-grey-0;
             padding-bottom: 105px;
         }
-
         @include breakpoint(mobile) {
             padding: 20px;
         }
-
         .quotes {
             @include sassvg('quotes', $color-blue-dk);
-
             display: block;
             content: "";
             height: 55px;
             width: 70px;
             background-size: 99%;
             margin-bottom: 35px;
-
             @include breakpoint(tablet) {
                 margin-bottom: 20px;
             }
         }
-
         .slide__text {
             color: $color-grey-80;
-
             &:after {
                 content: "";
                 display: block;
@@ -48,57 +40,48 @@
                 background-color: $color-blue-dk;
             }
         }
-
         .slide__meta {
             font-size: 21px;
-
             .author {
                 color: $color-grey-80;
                 margin-bottom: 5px;
             }
-
             .company a {
                 color: $color-blue-dk;
             }
         }
-
         + div {
             @include breakpoint(desktop) {
                 width: 59%;
             }
         }
     }
-
     img {
         @include breakpoint(tablet) {
             display: none;
         }
     }
-
     .slick-dots {
-        top: calc(100% - 127px);
+        top: calc(100% - 67px);
         text-align: left;
         width: calc(100% - 28px);
         padding-left: 28px;
-        bottom: -25px;
-
+        transform: translateY(-100%);
         @include breakpoint(tablet) {
             top: auto;
-            bottom: 50px;
+            bottom: 35px;
         }
-
         @include breakpoint(mobile) {
             position: relative;
             bottom: 20px;
+            margin-top: 50px;
             left: -20px;
         }
-
         li {
             button {
                 border: 1px solid $color-blue-dk;
                 background: transparent;
             }
-
             &.slick-active,
             &:hover {
                 button {
@@ -106,6 +89,22 @@
                     background: $color-orange;
                 }
             }
+        }
+    }
+    &.background__top {
+        @include breakpoint(desktop) {
+            padding-top: 80px;
+        }
+        @include breakpoint(tablet-only) {
+            padding-top: 70px;
+        }
+        @include breakpoint(mobile) {
+            padding-top: 55px;
+        }
+    }
+    .slick-slide:not(.slick-current) {
+        .animate {
+            animation: none;
         }
     }
 }

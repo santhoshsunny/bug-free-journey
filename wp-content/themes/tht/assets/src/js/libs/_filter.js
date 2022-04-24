@@ -7,10 +7,25 @@ var filters = (function ($, window, document, undefined) {
 	var $newsCat;
 	var $newsFilters;
 	var $sortOrder;
+	var $viewToggle;
 
 	var events = function () {
+		if (window.location.href.indexOf("news-category") > -1) {​​
+			if ($('#newsList').length > 0) {
+				$('html, body').animate({​​
+					scrollTop: ($('#newsList').offset().top)
+				}​​, 2000);
+			}
+		}
+		
 		$productCat.on('change', function () {
 			$productFilters.submit();
+		});
+
+		$viewToggle.on('change', function () {
+			if ($productFilters.length) {
+				$productFilters.submit();
+			}
 		});
 
 		$sort.on('change', function () {
@@ -43,6 +58,14 @@ var filters = (function ($, window, document, undefined) {
 		if (cat_post) {
 			$productCat.val(cat_post);
 		}
+
+		var view_mode = ($.urlParam('view-mode'));
+		if(view_mode) {
+			$('html,body').animate({
+				scrollTop: $productFilters.offset().top
+			},
+			'slow');
+		}
 	}
 
 	$.urlParam = function (name) {
@@ -62,6 +85,8 @@ var filters = (function ($, window, document, undefined) {
 			$newsFilters = $('#news-filters');
 
 			$sortOrder = $('#sort-order');
+
+			$viewToggle = $('.view-toggle');
 
 			events();
 		}

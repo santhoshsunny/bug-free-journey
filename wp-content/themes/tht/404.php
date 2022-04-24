@@ -16,15 +16,15 @@ get_header();
 			<?php if ( function_exists('yoast_breadcrumb') ) {yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );}?>
 		</div>
 		<header class="general-page__header">
-			<h1><?php _e('404. Page Not Found.', 'dra'); ?></h1>
+			<h1><?php _e('404. Page Not Found.', 'tht'); ?></h1>
 		</header>
 		<p>
 			<?php
 				echo sprintf(
-					__( 'Sorry, either you do not have access to this article, or the article no longer exists. Please use the <a href="%s">Contact Us</a> link if you need further assistance.', 'dra' ),
+					__( 'Sorry, either you do not have access to this article, or the article no longer exists. Please use the <a href="%s">Contact Us</a> link if you need further assistance.', 'tht' ),
 					esc_url(home_url('/contact-us'))
 					);
-			// _e('Sorry - that page is missing or does not exist.<br>Please navigate home and try again.', 'dra');
+			// _e('Sorry - that page is missing or does not exist.<br>Please navigate home and try again.', 'tht');
 			?>
 		</p>
 	</main>

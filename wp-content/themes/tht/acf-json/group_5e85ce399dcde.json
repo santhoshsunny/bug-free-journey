@@ -1,6 +1,6 @@
 {
     "key": "group_5e85ce399dcde",
-    "title": "Block | CMS Group Block",
+    "title": "Block | CMS Text Group Block",
     "fields": [
         {
             "key": "field_5e85ce4ff3f45",
@@ -26,7 +26,7 @@
                     "label": "Title",
                     "name": "title",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Char Limit : 50",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -45,7 +45,7 @@
                     "label": "Description",
                     "name": "description",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Char Limit: 300",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -61,10 +61,25 @@
                 },
                 {
                     "key": "field_5e8c51c799f77",
-                    "label": "BG Color",
+                    "label": "Background Color",
                     "name": "bg_color",
                     "type": "color_picker",
-                    "instructions": "",
+                    "instructions": "Select the background color or insert RGB color code",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": ""
+                },
+                {
+                    "key": "field_5ef5ff7253b0b",
+                    "label": "Text Color",
+                    "name": "text_color",
+                    "type": "color_picker",
+                    "instructions": "Select the text color or insert RGB color code",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -82,7 +97,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/cms-group"
+                "value": "acf\/cms-text-group"
             }
         ]
     ],
@@ -94,5 +109,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588571882
+    "modified": 1593180121
 }

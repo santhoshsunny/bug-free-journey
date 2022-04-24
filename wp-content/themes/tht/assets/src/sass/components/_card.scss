@@ -85,6 +85,7 @@
 
             @include breakpoint(tablet-only) {
                 padding-right: 28px;
+                margin-top: -18px;
             }
 
             @include breakpoint(mobile) {
@@ -100,6 +101,7 @@
 
             @include breakpoint(tablet-only) {
                 padding-left: 28px;
+                margin-top: -18px;
             }
 
             @include breakpoint(mobile) {

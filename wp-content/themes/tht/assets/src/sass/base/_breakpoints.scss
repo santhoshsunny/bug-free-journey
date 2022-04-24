@@ -37,3 +37,15 @@ $break-tab-plus: 1200px;
     display: none!important;
   }
 }
+
+.no-mobile {
+  @include breakpoint(mobile) {
+    display: none!important;
+  }
+}
+
+.mobile-only {
+  @include breakpoint(above-mobile) {
+    display: none!important;
+  }
+}

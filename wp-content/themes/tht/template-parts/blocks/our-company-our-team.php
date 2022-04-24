@@ -5,12 +5,12 @@
 
 <div id="our-team" class="block wrapper aligncenter">
     <?php if ($title) : ?>
-        <div class="block--title">
+        <div class="block--title" data-aos="fade-down">
             <?= $title; ?>
         </div>
     <?php endif; ?>
     <?php if ($description) : ?>
-        <div class="block--content">
+        <div class="block--content" data-aos="fade-down" data-aos-delay="250" data-aos-anchor="#our-team .block--title">
             <?php echo $description; ?>
         </div>
     <?php endif; ?>

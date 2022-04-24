@@ -3,7 +3,7 @@
     if ($post):
 ?>
 <div class="article-wrap wrapper">
-    <div id="newsFeature">
+    <div id="newsFeature" data-aos="fade-down">
         <?php
             setup_postdata($post);
             $title =  get_field('title', $post->ID);
@@ -13,18 +13,18 @@
         ?>
             <div class="feature--content">
                 <?php if ($logo) : ?>
-                    <div class="feature--content__top">
-                        <?= wpbfm_get_img_html($logo, 'news-featured-logo'); ?>
+                    <div class="feature--content__top" data-aos="fade-down" data-aos-delay="250" data-aos-anchor="#newsFeature">
+                        <?= wptht_get_img_html($logo, 'news-featured-logo'); ?>
                     </div>
                 <?php endif; ?>
                 <div class="feature--content__bottom">
-                    <div class="date">
+                    <div class="date" data-aos="fade-down" data-aos-delay="500" data-aos-anchor="#newsFeature">
                         <?= get_the_date('m/d/Y'); ?>
                     </div>
-                    <div class="title">
-                        <?= $title;?>
+                    <div class="title" data-aos="fade-down" data-aos-delay="750" data-aos-anchor="#newsFeature">
+                      <h2> <?= $title;?></h2>
                     </div>
-                    <div class="excerpt">
+                    <div class="excerpt" data-aos="fade-down" data-aos-delay="1000" data-aos-anchor="#newsFeature">
                         <?= $description;?>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
 
             <div class="feature--img">
                 <?php if ($image) : ?>
-                    <?= wpbfm_get_img_html($image, 'news-featured-image'); ?>
+                    <?= wptht_get_img_html($image, 'news-featured-image'); ?>
                 <?php endif; ?>
             </div>
     </div>

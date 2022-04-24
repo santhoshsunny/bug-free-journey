@@ -2,8 +2,8 @@
 acf_register_block(
 	array(
 		'name'				=> 'testimonial',
-		'title'				=> __('Testimonial', 'Dra'),
-		'category'			=> 'general-blocks',
+		'title'				=> __('Testimonial', 'tht'),
+		'category'			=> 'common_blocks',
 		'keywords'		 => array('testimonial'),
 		'icon' => array(
 			'src'        => 'format-image',
@@ -16,15 +16,15 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 acf_register_block(
 	array(
 		'name'				=> 'image-content-section',
-		'title'				=> __('Image Content Section', 'Dra'),
-		'category'			=> 'general-blocks',
-		'keywords'		 => array('image','content','section'),
+		'title'				=> __('Image Content Section', 'tht'),
+		'category'			=> 'common_blocks',
+		'keywords'		 => array('image', 'content', 'section'),
 		'icon' => array(
 			'src'        => 'format-image',
 			'background' => '#7e70af',
@@ -36,7 +36,7 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 
@@ -44,9 +44,9 @@ acf_register_block(
 acf_register_block(
 	array(
 		'name'				=> 'background-image-banner',
-		'title'				=> __(' BackGround Image Banner', 'Dra'),
-		'category'			=> 'general-blocks',
-		'keywords'		 => array('bgimage', 'background'),
+		'title'				=> __(' Background Image Banner', 'tht'),
+		'category'			=> 'common_blocks',
+		'keywords'		 => array('backgroundimage', 'background'),
 		'icon' => array(
 			'src'        => 'format-image',
 			'background' => '#7e70af',
@@ -58,17 +58,17 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => true,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 
 
 acf_register_block(
 	array(
-		'name'				=> 'bgimage-content-banner',
-		'title'				=> __('BGImage Content Banner', 'Dra'),
-		'category'			=> 'general-blocks',
-		'keywords'		 => array( 'bgimage','content'),
+		'name'				=> 'backgroundimage-content-banner',
+		'title'				=> __('Background Image Content Banner', 'tht'),
+		'category'			=> 'common_blocks',
+		'keywords'		 => array('backgroundimage', 'content'),
 		'icon' => array(
 			'src'        => 'format-image',
 			'background' => '#7e70af',
@@ -80,17 +80,17 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => true,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 
 
 acf_register_block(
 	array(
-		'name'				=> 'bgcolor-content',
-		'title'				=> __(' BGColor Content', 'Dra'),
-		'category'			=> 'general-blocks',
-		'keywords'		 => array('bgcolor','content'),
+		'name'				=> 'backgroundcolor-content',
+		'title'				=> __(' Background Color Content', 'tht'),
+		'category'			=> 'common_blocks',
+		'keywords'		 => array('backgroundcolor', 'content'),
 		'icon' => array(
 			'src'        => 'format-image',
 			'background' => '#7e70af',
@@ -102,27 +102,27 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => true,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 
 acf_register_block(
-    array(
-        'name'                => 'intro',
-        'title'                => __('Intro', 'Dra'),
-        'category'            => 'general-blocks',
-        'keywords'         => array('intro'),
-        'icon' => array(
-            'src'        => 'format-image',
-            'background' => '#7e70af',
-            'foreground' => '#fff',
-        ),
-        'post_types'     => array('page'),
-        'mode'           => 'edit',
-        'supports'       => array(
-            'align'    => array('full'),
-            'multiple' => true,
-        ),
-        'render_callback'    => 'wpbfm_acf_block_render_callback',
-    )
+	array(
+		'name'                => 'intro',
+		'title'                => __('Intro', 'tht'),
+		'category'            => 'common_blocks',
+		'keywords'         => array('intro'),
+		'icon' => array(
+			'src'        => 'format-image',
+			'background' => '#7e70af',
+			'foreground' => '#fff',
+		),
+		'post_types'     => array('page'),
+		'mode'           => 'edit',
+		'supports'       => array(
+			'align'    => array('full'),
+			'multiple' => true,
+		),
+		'render_callback'    => 'wptht_acf_block_render_callback',
+	)
 );

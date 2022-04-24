@@ -15,6 +15,11 @@ footer {
 
             @include breakpoint(tablet-only) {
                 padding: 30px 0;
+                .btn__outline{
+                    min-width: 150px;
+                }
+                
+                
             }
 
             @include breakpoint(mobile) {
@@ -29,7 +34,8 @@ footer {
 
                 @include breakpoint(tablet-only) {
                     line-height: 1;
-                    max-width: 100px;
+                    max-width: 130px;
+                    
                 }
 
                 @include breakpoint(mobile) {
@@ -45,7 +51,7 @@ footer {
 
                 @include breakpoint(tablet) {
                     width: auto;
-                    max-width: 415px;
+                    max-width: 370px;
                 }
 
                 @include breakpoint(mobile) {
@@ -114,8 +120,17 @@ footer {
                             display: block;
 
                             &:hover {
-                                color: $color-white;
-                                background: $color-blue-dk;
+                                //color: $color-white;
+                                //background: $color-blue-dk;
+                                &:after {
+                                content: "";
+                                display: block;
+                                height: 2px;
+                                width: 70px;
+                                max-width: 100%;
+                                background: #1897cb;
+                                transition: $transition;
+                                }
                             }
                         }
                     }
@@ -146,6 +161,22 @@ footer {
                 ul {
                     @include breakpoint(tablet) {
                         display: none;
+                    }
+                    
+                    a{
+                         &:hover {
+                                //color: $color-white;
+                                //background: $color-blue-dk;
+                                &:after {
+                                content: "";
+                                display: block;
+                                height: 2px;
+                                width: 70px;
+                                max-width: 100%;
+                                background: #1897cb;
+                                transition: $transition;
+                                }
+                            }
                     }
                 }
             }
@@ -241,6 +272,9 @@ footer {
 
         a {
             color: $color-grey-80;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }

@@ -6,13 +6,13 @@
 <div id="opportunities-intro" class="block background__full">
     <div class="wrapper__xs">
         <?php if ($text) : ?>
-            <div class="block--content">
+            <h2 class="block--content" data-aos="fade-down">
                 <?= $text; ?>
-            </div>
+            </h2>
         <?php endif; ?>
         <?php if ($cta) : ?>
-            <div class="block--btn">
-                <?= wpbfm_get_cta_html($cta, 'btn btn__outline__blue'); ?>
+            <div class="block--btn" data-aos="fade-down" data-aos-delay="250">
+                <?= wptht_get_cta_html($cta, 'btn btn__outline__blue'); ?>
             </div>
         <?php endif; ?>
     </div>

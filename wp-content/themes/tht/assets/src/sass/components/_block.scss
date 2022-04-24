@@ -31,7 +31,7 @@
                 padding-bottom: 30px;
             }
 
-            + .block {
+            + .block:not(.image-content) {
                 padding-top: 70px;
 
                 @include breakpoint(tablet) {
@@ -39,11 +39,28 @@
                 }
             }
         }
+
+        &full:last-child(){
+            margin-bottom: 8px;
+
+            @include breakpoint(tablet-only){
+                margin-bottom: 12px;
+            }
+
+            @include breakpoint(mobile){
+                margin-bottom: 14px;
+            }
+        }
     }
 
     &.greyDiagonal {
         @extend %greyDiagonal;
         @extend .block__alt;
+
+        //background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     &.block__alt {

@@ -16,6 +16,8 @@ var simpleSlider =  (function($, window, document, undefined) {
               slidesToShow: 1,
               slidesToScroll: 1,
               adaptiveHeight: true,
+              fade: true,
+              cssEase: 'linear',
               responsive: [
                 {
                   breakpoint: 1024,
@@ -26,6 +28,13 @@ var simpleSlider =  (function($, window, document, undefined) {
                   settings: { slidesToShow: 1 }
               }
             ]
+          });
+
+          var otherSlides = $(item).find('.slick-slide:not(.slick-current)');
+
+          $.each(otherSlides, function(k, v){
+            var animates = $(v).find('.slide-content .aos-init');
+            $(animates).removeClass('aos-animate');
           });
       });
     }

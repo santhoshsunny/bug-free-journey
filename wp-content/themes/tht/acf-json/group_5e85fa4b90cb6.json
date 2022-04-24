@@ -26,7 +26,7 @@
                     "label": "Title",
                     "name": "title",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Char Limit:50",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -45,7 +45,7 @@
                     "label": "Text",
                     "name": "text",
                     "type": "textarea",
-                    "instructions": "",
+                    "instructions": "Char Limit: 300",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -57,7 +57,7 @@
                     "placeholder": "",
                     "maxlength": "",
                     "rows": "",
-                    "new_lines": ""
+                    "new_lines": "br"
                 }
             ]
         },
@@ -66,7 +66,7 @@
             "label": "Text",
             "name": "text",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Char Limit : 400",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -76,7 +76,7 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": "",
+            "maxlength": 400,
             "rows": "",
             "new_lines": ""
         }
@@ -98,5 +98,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1589573358
+    "modified": 1591355893
 }

@@ -18,6 +18,7 @@ const gulp = require('gulp'),
   sassvg = require('gulp-sassvg'),
   image = require('gulp-image'),
   base64 = require('gulp-base64-inline'),
+  minify = require('gulp-minify'),
   autoprefixer = require('autoprefixer')
 ;
 
@@ -67,11 +68,11 @@ gulp.task('js', () => {
   return gulp.src([
     'node_modules/slick-carousel/slick/slick.min.js',
     'node_modules/select2/dist/js/select2.min.js',
+    'node_modules/odometer/odometer.min.js',
+    'node_modules/aos/dist/aos.js',
     'assets/src/js/site.js',
     input.js])
-    .pipe(sourcemaps.init())
     .pipe(concat('scripts.js'))
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest(output.js));
 });
 
@@ -100,8 +101,8 @@ gulp.task('svg', function(){
  */
 gulp.task('watch', () => {
   gulp.watch(input.svg, gulp.series('svg'));
-  gulp.watch(watchFiles.sass, gulp.series('sass'));
-  gulp.watch(input.js, gulp.series('js'));
+  gulp.watch(watchFiles.sass, gulp.series('sass','minify-css'));
+  gulp.watch(input.js, gulp.series('js','minify-js'));
   gulp.watch(input.sprite, gulp.series('sprite'));
 });
 
@@ -137,19 +138,21 @@ gulp.task('clean',
  */
 gulp.task('minify-css', () => {
   return gulp
-    .src(output.css + '/styles.css')
+    .src(output.css + '/main.css')
     .pipe(cleanCSS({compatibility: 'ie10'}))
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(output.css));
 });
 
 gulp.task('minify-js', () => {
-  return pipeline(
-    gulp.src('assets/dist/js/scripts.js'),
-    uglify(),
-    rename({suffix: '.min'}),
-    gulp.dest('assets/dist/js/')
-  );
+  return gulp.src('assets/dist/js/scripts.js')
+    .pipe(minify({
+      ext:{
+        min:'.min.js'
+      },
+      compress:{}
+    }))
+    .pipe(gulp.dest('assets/dist/js/'))
 });
 
 /**

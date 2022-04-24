@@ -102,31 +102,38 @@ button {
   @include fonts(subheading);
 }
 
-main ul:not(.slick-dots) {
-  margin-left: 23px;
-
-  > li {
-    display: flex;
-    align-items: center;
-
-    &:before {
-      content: "";
-      display: block;
-      height: 10px;
-      width: 10px;
-      background-color: $color-orange;
-      margin-right: 20px;
-    }
-
-    + li {
-      margin-top: 20px;
-
-      @include breakpoint(tablet-only) {
-        margin-top: 17px;
+main,
+.main-content {
+  ul:not(.slick-dots) {
+    margin-left: 23px;
+  
+    > li {
+      display: flex;
+      align-items: center;
+      position: relative;
+        padding-left: 20px;
+      &:before {
+        content: "";
+        display: block;
+        height: 10px;
+        width: 10px;
+        background-color: $color-orange;
+        margin-right: 20px;
+        position: absolute;
+        left: -5px;
+        top: 7px;
       }
-
-      @include breakpoint(mobile) {
-        margin-top: 14px;
+  
+      + li {
+        margin-top: 20px;
+  
+        @include breakpoint(tablet-only) {
+          margin-top: 17px;
+        }
+  
+        @include breakpoint(mobile) {
+          margin-top: 14px;
+        }
       }
     }
   }

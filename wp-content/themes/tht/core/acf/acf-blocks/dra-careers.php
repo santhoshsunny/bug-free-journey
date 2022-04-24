@@ -4,7 +4,7 @@ acf_register_block(
 	
 	array(
 		'name'				=> 'careers-image-banner',
-		'title'				=> __('Careers Image Banner', 'Dra'),
+		'title'				=> __('Careers Image Banner', 'tht'),
 		'category'			=> 'careers',
 		'keywords'		 => array('image', 'banner'),
 		'icon' => array(
@@ -18,14 +18,14 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 	
 );*/
 acf_register_block(
 	array(
 		'name'				=> 'careers-intro',
-		'title'				=> __('Careers Intro', 'Dra'),
+		'title'				=> __('Careers Intro', 'tht'),
 		'category'			=> 'careers',
 		'keywords'		 => array('intro', 'career'),
 		'icon' => array(
@@ -39,13 +39,13 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 acf_register_block(
 	array(
 		'name'				=> 'careers-accordion',
-		'title'				=> __('Accordion', 'Dra'),
+		'title'				=> __('Accordion', 'tht'),
 		'category'			=> 'careers',
 		'keywords'		 => array('accordion'),
 		'icon' => array(
@@ -59,6 +59,6 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );

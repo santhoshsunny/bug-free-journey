@@ -2,7 +2,7 @@
 acf_register_block(
 	array(
 		'name'				=> 'investment-portfolio-chart',
-		'title'				=> __(' Portfolio Chart', 'Dra'),
+		'title'				=> __(' Portfolio Chart', 'tht'),
 		'category'			=> 'investment',
 		'keywords'		 => array('portfolio', 'chart'),
 		'icon' => array(
@@ -16,6 +16,6 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );

@@ -4,9 +4,13 @@
     .member--info {
         text-align: left;
         color: $color-blue-dk;
+        flex-basis: 75%;
+        @include breakpoint(mobile) {
+            flex-basis: 100%;
+        }
 
         .name {
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 5px;
         }
 
@@ -25,16 +29,30 @@
 
         > img {
             @include centerImg();
+            //top: 72%;
+            min-width: 0;
+            min-height: 0;
+            width: auto;
+            @include breakpoint(tablet-only) {
+                top: 57%;
+            }
         }
     }
 }
 
 #our-team {
+    .block--content {
+        @include breakpoint(desktop) {
+            max-width: 835px;
+            margin: auto;
+        }
+    }
+
     #staff {
         margin-top: 48px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: flex-start;
 
         @include breakpoint(tablet-only) {
             margin-top: 10px;
@@ -48,18 +66,31 @@
     .staff--member {
         margin-top: 12px;
         width: calc(25% - 9px);
+        margin-right: 12px;
+        &:nth-child(4n) {
+            margin-right: 0;
+        }
 
         @include breakpoint(tablet-only) {
             width: calc(33.33% - 7px);
+            margin-right: 10px;
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
         }
 
         @include breakpoint(tablet) {
             margin-top: 7px;
+            margin-right: 10px;
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
         }
 
         @include breakpoint(mobile) {
             width: 100%;
             margin-top: 0;
+            margin-right: 0;
         }
 
         .member--img {

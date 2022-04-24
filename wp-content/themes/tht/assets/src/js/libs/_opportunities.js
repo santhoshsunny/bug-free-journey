@@ -10,14 +10,13 @@ var opportunities =  (function($, window, document, undefined) {
     }
 
     var setNav = function() {
-        var path = window.location.pathname;
-        path = path.replace(/\/$/, "");
-        path = decodeURIComponent(path);
+        var path = window.location.pathname.replace(/\/$/, "");
+        path = decodeURIComponent(path.substring(path.lastIndexOf('/') + 1));
 
         $linkNav.find(".sublink a").each(function () {
-            var href = $(this).get(0).pathname.replace(/\/$/, "");
+            var href = $(this).get(0).pathname.replace(/(^\/)/, "").replace(/(\/$)/,"");
 
-            if (path.substring(0, href.length) === href) {
+            if (path.substring(0, path.length) === href) {
                 $(this).closest('.sublink').addClass('active');
             }
         });
@@ -44,7 +43,7 @@ var opportunities =  (function($, window, document, undefined) {
         }
 
         $scrollDiv.animate({
-            scrollTop: pos.left
+            //scrollTop: pos.left
         },500);
 
     }

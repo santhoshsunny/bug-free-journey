@@ -6,18 +6,18 @@
 <div id="careersIntro" class="greyDiagonal block">
 	<div class="wrapper">
 		<?php if($img): ?>
-			<div class="cms--img block">
-				<?= wpbfm_get_img_html($img, 'career-intro-banner'); ?>
+			<div class="cms--img block" data-aos="fade-down">
+				<?= wptht_get_img_html($img, 'career-intro-banner'); ?>
 			</div>
 		<?php endif;?>
 
 		<?php if($cards) : ?>
 			<div class="career--cards block nopad">
 				<?php foreach ($cards as $k => $list): ?>
-					<div class="content--card <?= ($k % 2 == 0)? 'even' : 'odd';?>">
+					<div class="content--card <?= ($k % 2 == 0)? 'even' : 'odd';?>" id="card--<?=$k;?>" data-aos="fade-down">
 						<?php if ($list['image']) : ?>
-							<div class="card--img">
-								<?= wpbfm_get_img_html($list['image'], 'card-image'); ?>
+							<div class="card--img" data-aos="zoom-in" data-aos-delay="500" data-aos-anchor="#card--<?=$k;?>">
+								<?= wptht_get_img_html($list['image'], 'card-image'); ?>
 							</div>
 						<?php endif; ?>
 						<div class="card--text">

@@ -9,6 +9,16 @@
     @include breakpoint(mobile) {
         padding-top: 40px;
     }
+
+    .accordion {
+        dd > span {
+            display: none;
+        }
+
+        dt.is-active + dd > span {
+            display: block;
+        }
+    }
 }
 
 #careerForm.wrapper__xs {

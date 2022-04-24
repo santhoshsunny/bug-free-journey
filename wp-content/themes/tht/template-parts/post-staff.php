@@ -2,8 +2,8 @@
 <?php $_posts = new WP_Query(array(
 	'post_type'         => 'staff',
 	'posts_per_page'    => -1,
-	'orderby'        => 'title',
-	'order'          => 'ASC',
+	'orderby'        => 'date',
+	'order'          => 'DESC',
 ));
 ?>
 <?php if ($_posts->have_posts()): ?>
@@ -18,12 +18,12 @@
 
 			//$cta = get_field('cta', $id);
 		?>
-			<div class="staff--member modal--content">
+			<div class="staff--member modal--content" data-aos="fade">
 				<div class="member--img">
 					<?php if ($image) :
-						echo wpbfm_get_img_html($image, 'full'); 
+						echo wptht_get_img_html($image, 'full'); 
 					else:
-						echo wpbfm_get_img_placeholder();
+						echo wptht_get_img_placeholder();
 					endif; ?>
 				</div>
 				<div class="member--info">

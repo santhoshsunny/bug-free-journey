@@ -1,13 +1,13 @@
 {
     "key": "group_5e89d6b083b68",
-    "title": "Block | BGColor Content Block",
+    "title": "Block | Background Color Content Block",
     "fields": [
         {
             "key": "field_5e89d743eae47",
             "label": "Image",
             "name": "image",
             "type": "image",
-            "instructions": "Recommended Size: 588 x 566",
+            "instructions": "Recommended Size: 375 X 358",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -31,7 +31,7 @@
             "label": "Title",
             "name": "title",
             "type": "text",
-            "instructions": "",
+            "instructions": "Char Limit : 50",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -50,7 +50,7 @@
             "label": "Description",
             "name": "description",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Char Limit : 400",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -66,18 +66,27 @@
         },
         {
             "key": "field_5eb90b7bdcfe8",
-            "label": "BG-Color",
+            "label": "Background Color",
             "name": "bg-color",
-            "type": "color_picker",
-            "instructions": "Select grey or blue color",
-            "required": 0,
+            "type": "radio",
+            "instructions": "",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "#0000FF"
+            "choices": {
+                "#f0f0f0": "Grey",
+                "#143a62": "Blue"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "#f0f0f0",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
         }
     ],
     "location": [
@@ -85,7 +94,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/bgcolor-content"
+                "value": "acf\/backgroundcolor-content"
             }
         ]
     ],
@@ -97,5 +106,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1589906756
+    "modified": 1593180481
 }

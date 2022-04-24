@@ -3,16 +3,16 @@
 ?>
 <div id="criteriaBlock" class="block background__full background__alt">
     <div class="wrapper">
-        <div class="block--title">
+        <div class="block--title" data-aos="fade-down">
             <?= get_field('title');?>
         </div>
-        <div class="block--content">
+        <div class="block--content" data-aos="fade-down" data-aos-delay="250" data-aos-anchor="#criteriaBlock .block--title">
             <?= get_field('sub_title'); ?>
         </div>
         <?php if ($lists) :?>
-            <div class="criteria wrapper__narrow">
+            <div class="criteria wrapper__narrow" data-aos="fade" data-aos-delay="500" data-aos-anchor="#criteriaBlock .block--title">
                 <?php foreach ($lists as $list): ?>
-                    <div class="criterion">
+                    <div class="criterion" data-aos="fade">
                         <?php if($list['product']):?>
                             <div class="criterion--title">
                                 <?= $list['product']->name;?>

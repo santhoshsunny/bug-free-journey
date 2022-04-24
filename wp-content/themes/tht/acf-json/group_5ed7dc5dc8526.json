@@ -1,0 +1,77 @@
+{
+    "key": "group_5ed7dc5dc8526",
+    "title": "OP | Get In Touch Block",
+    "fields": [
+        {
+            "key": "field_5ed7dc781aa50",
+            "label": "Title",
+            "name": "title",
+            "type": "text",
+            "instructions": "char Limit : 50",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 53
+        },
+        {
+            "key": "field_5ed7dc891aa51",
+            "label": "Text",
+            "name": "text",
+            "type": "textarea",
+            "instructions": "Char Limit : 300",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 300,
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5ed7dc9a1aa52",
+            "label": "CTA",
+            "name": "cta",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "pre-footer-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1591355893
+}

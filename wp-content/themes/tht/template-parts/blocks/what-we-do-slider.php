@@ -9,7 +9,7 @@
                   <div id="imageGallery" class="simple-slider__slider is-slider" data-dots="true" data-arrows="true">
                         <?php foreach ($images as $image_id) : ?>
                               <div class="simple-slider__slider___slide">
-                                    <?= wpbfm_get_img_html($image_id, 'gallery-image'); ?>
+                                    <?= wptht_get_img_html($image_id, 'gallery-image'); ?>
                               </div>
                         <?php endforeach; ?>
                   </div>
@@ -18,12 +18,12 @@
                   <div class="content wrapper__xs">
                         <?php foreach ($lists as $list):
                               if ($list['title']): ?>
-                                    <div class="subheading">
+                                    <div class="subheading" data-aos="fade-down">
                                           <?= $list['title']; ?>
                                     </div>
                               <?php endif; ?>
                               <?php if ($list['text']): ?>
-                                    <p><?= $list['text']; ?></p>
+                                    <p  data-aos="fade-down" data-aos-delay="250"><?= $list['text']; ?></p>
                               <?php endif; ?>
                         <?php endforeach; ?>
                   </div>

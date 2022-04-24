@@ -13,10 +13,13 @@
         &content {
             @extend %contentBox;
 
-            width: 100%;
             max-width: 600px;
             height: 455px;
             background: $color-grey-0;
+
+            @include breakpoint(desktop) {
+                width: 42%;
+            }
 
             @include breakpoint(tablet) {
                 height: auto;
@@ -56,6 +59,10 @@
         }
 
         &img {
+            @include breakpoint(desktop) {
+                width: 58%;
+            }
+
             @include breakpoint(tablet-only) {
                 margin-top: -169px;
                 margin-left: 4%;
@@ -63,17 +70,13 @@
             }
 
             @include breakpoint(mobile) {
-                margin-left: 3%;
-                margin-right: 3%;
+                margin: 0;
             }
 
             img {
                 display: block;
-                height: 100%;
-
-                @include breakpoint(tablet) {
-                    width: 100%;
-                }
+                height: auto;
+                width: 100%;
             }
         }
     }

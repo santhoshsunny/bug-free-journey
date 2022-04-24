@@ -34,7 +34,9 @@ get_header();
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
+	<footer class="footer-section">
+	<?php get_template_part('template-parts/op', 'getintouch'); ?>
+	</footer>
 <?php
 //get_sidebar();
 get_footer();

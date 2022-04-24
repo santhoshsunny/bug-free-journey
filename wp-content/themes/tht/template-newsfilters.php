@@ -1,6 +1,6 @@
 <?= (WP_DEBUG) ? '<!-- BEGIN: [ ' . basename(__FILE__) . ' ]   -->' : '';
 /*
-Template Name: news
+Template Name: News
 */
 get_header();
 ?>
@@ -10,7 +10,7 @@ get_header();
 			<?php if (function_exists('yoast_breadcrumb')) {
 				yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
 			} ?>
-			<div class="title">News | Recent Activity</div>
+			<h1 class="title"><?php _e("News | Recent Activity"); ?></h1>
 		</div>
 	</div>
 	<?php if (have_posts()) :
@@ -46,8 +46,8 @@ $cats = get_categories($args);
 				<label for="select-sort"><?php _e('Sort By:'); ?></label>
 				<select class="style-select" id="select-sort" name="select-sort" aria-label="sort">
 					<?php $sortval = isset($_GET['select-sort']) ? $_GET['select-sort']  : ""; ?>
-					<option <?= ($sortval == 'ASC') ? "selected" : ""; ?> value="ASC"><?php _e('ASC'); ?></option>
-					<option <?= ($sortval == 'DESC') ? "selected" : ""; ?> value="DESC"><?php _e('DES'); ?></option>
+					<option <?= ($sortval == 'DESC') ? "selected" : ""; ?> value="DESC"><?php _e('Newest'); ?></option>
+					<option <?= ($sortval == 'ASC') ? "selected" : ""; ?> value="ASC"><?php _e('Oldest'); ?></option>
 				</select>
 			</div>
 		</form>
@@ -72,7 +72,7 @@ $cats = get_categories($args);
 			)
 		);
 	}
-	$args['order'] =  'ASC';
+	$args['order'] =  'DESC';
 
 	if (isset($_GET['select-sort']) && !empty($_GET['select-sort'])) {
 		$args['order'] =  $_GET['select-sort'];
@@ -90,7 +90,7 @@ $cats = get_categories($args);
 				$title = get_field('title', $id);
 				$description = get_field('description', $id);
 			?>
-				<div class="news-item">
+				<div class="news-item" id="news--<?= $id;?>" data-aos="fade-down">
 					<div class="news-item--content">
 						<?php if ($date) : ?>
 							<div class="news-item--content__date">
@@ -98,7 +98,7 @@ $cats = get_categories($args);
 							</div>
 						<?php endif; ?>
 						<?php if ($title) : ?>
-							<a href="<?= get_the_permalink();?>" class="news-item--content__title">
+							<a href="<?= get_the_permalink(); ?>" class="news-item--content__title">
 								<?= $title; ?>
 							</a>
 						<?php endif; ?>
@@ -108,9 +108,9 @@ $cats = get_categories($args);
 							</div>
 						<?php endif; ?>
 					</div>
-					<div class="news-item--img">
+					<div class="news-item--img" data-aos="zoom-in" data-aos-delay="500" data-aos-anchor="#news--<?= $id;?>">
 						<?php if ($image) : ?>
-							<?= wpbfm_get_img_html($image, 'news-image'); ?>
+							<?= wptht_get_img_html($image, 'news-image'); ?>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -127,6 +127,8 @@ $cats = get_categories($args);
 		)); ?>
 	</div>
 </div>
-
+<footer class="footer-section">
+	<?php get_template_part('template-parts/op', 'getintouch'); ?>
+</footer>
 <?php get_footer();
 echo (WP_DEBUG) ? '<!-- END: [ ' . basename(__FILE__) . ' ]   -->' : '';

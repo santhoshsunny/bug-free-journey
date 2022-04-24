@@ -3,33 +3,165 @@
 
     .block--title {
         color: $color-white;
+        padding-top: 60px;
     }
 
     .infographs {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         padding-top: 30px;
+        max-width: 1420px;
+        margin: auto;
 
         @include breakpoint(tablet) {
             flex-direction: column;
-            justify-content: space-evenly;
         }
 
-        .graph {
-            + .graph {
-                @include breakpoint(tablet-only) {
-                    margin-top: 60px;
+        .graphOuter {
+            height: auto;
+            min-height: 500px;
+            position: relative;
+            width: 50%;
+
+            @include breakpoint(tablet) {
+                width: 100%;
+                display: flex;
+                align-items: center;
+            }
+
+            @include breakpoint(mobile) {
+                display: block;
+            }
+        }
+
+        .graphWrap {
+            height: auto;
+            min-height: 500px;
+            position: relative;
+            width: 100%;
+
+            @include breakpoint(tablet) {
+               height: 480px;
+               width: 480px;
+               margin: auto auto 30px;
+               min-height: 0;
+            }
+
+            @include breakpoint(mobile) {
+                height: 100%;
+                width: 100%;
+                margin: 0 auto;
+             }
+    
+            &:before {
+                content: "";
+                padding-top: 100%;
+            }
+
+            #graph--left,
+            #graph--right {
+                height: 100%;
+                min-height: 500px;
+                width: 100%;
+                float: left;
+                
+                @include breakpoint(tablet) {
+                    margin: auto;
+                    height: 480px;
+                    width: 480px;
+                    min-height: 0;
                 }
 
                 @include breakpoint(mobile) {
-                    margin-top: 40px;
+                    margin: auto;
+                    height: calc(100vw - 40px);
+                    width: 100%;
+                    float: none;
                 }
             }
 
-            img {
-                height: auto;
-                max-width: 90%;
+            .graph--title {
+                @extend %serif;
+                color: $color-blue-dk;
+                font-size: 28px;
+                padding: 24px;
+                line-height: 1.2;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                height: 187px;
+                width: 187px;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 10px 2px rgba(0,0,0,.3);
+
+                @include breakpoint(1200px){
+                    height: 150px;
+                    width: 150px;
+                }
+
+                @include breakpoint(tablet){
+                    height: 40%;
+                    width: 40%;
+                }
+
+                @include breakpoint(mobile) {
+                    height: 35%;
+                    width: 35%;
+                    padding: 0;
+                    font-size: 5vw;
+                }
             }
+
+            .graph-label {
+                padding-left: 20px;
+                text-align: left;
+                line-height: 1.2;
+                //position: relative;
+
+                @include breakpoint(1200px) {
+                    //padding-left: 10px;
+                }
+
+                .square {
+                    position: fixed;
+                    top: 10px;
+                    left: 0;
+                    transform: translateY(-50%);
+                    margin-right: 10px;
+                }
+
+                .top {
+                    @extend %sansSerif;
+                    font-size: 24px;
+                }
+
+                .bottom {
+                    //@extend %serif;
+                    //font-size: 38px;
+                }
+            }
+        }
+
+        #left-legend,
+        #right-legend {
+            display: none;
+
+            @include breakpoint(tablet) {
+                display: block;
+            }
+        }
+    }
+
+    .infographs-desc {
+        text-align: left;
+        margin: 0 80px;
+        p {
+            color: white;
         }
     }
 }

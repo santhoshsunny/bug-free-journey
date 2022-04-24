@@ -5,9 +5,9 @@ var file =  (function($, window, document, undefined) {
 
     var events = function () {
         $($file).each(function(){
-            var $btn = $(this).find('.wpbfm-file__btn');
+            var $btn = $(this).find('.wptht-file__btn');
             var $input = $(this).find('input[type="file"]');
-            var $fileBox = $(this).find('.wpbfm-file__name');
+            var $fileBox = $(this).find('.wptht-file__name');
 
             $($btn).on('click', function(){
                 $input.trigger('click');
@@ -26,7 +26,7 @@ var file =  (function($, window, document, undefined) {
 
     return {
       init: function () {
-        $file = $('.wpbfm-file');
+        $file = $('.wptht-file');
         events();
       }
     }

@@ -5,7 +5,7 @@
 acf_register_block(
 	array(
 		'name'				=> 'what-we-do-slider',
-		'title'				=> __('What We Do Slider', 'Dra'),
+		'title'				=> __('What We Do Slider', 'tht'),
 		'category'			=> 'what_we_do',
 		'keywords'		 => array( 'Slider'),
 		'icon' => array(
@@ -19,13 +19,13 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 acf_register_block(
     array(
         'name'                => 'what-we-do-set-apart',
-        'title'                => __('Set Apart', 'Dra'),
+        'title'                => __('Set Apart', 'tht'),
         'category'            => 'what_we_do',
         'keywords'         => array('set', 'apart'),
         'icon' => array(
@@ -39,6 +39,6 @@ acf_register_block(
             'align'    => array('full'),
             'multiple' => false,
         ),
-        'render_callback'    => 'wpbfm_acf_block_render_callback',
+        'render_callback'    => 'wptht_acf_block_render_callback',
     )
 );

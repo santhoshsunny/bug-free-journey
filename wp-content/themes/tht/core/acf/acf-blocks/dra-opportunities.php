@@ -3,7 +3,7 @@
 acf_register_block(
 	array(
 		'name'				=> 'acquisition-criteria',
-		'title'				=> __('Acquisition Criteria', 'Dra'),
+		'title'				=> __('Acquisition Criteria', 'tht'),
 		'category'			=> 'opportunities',
 		'keywords'		 => array('criteria', 'block'),
 		'icon' => array(
@@ -17,13 +17,13 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 acf_register_block(
 	array(
 		'name'				=> 'acquisition-details',
-		'title'				=> __('Acquisition Details', 'Dra'),
+		'title'				=> __('Acquisition Details', 'tht'),
 		'category'			=> 'opportunities',
 		'keywords'		 => array('details', 'block'),
 		'icon' => array(
@@ -37,13 +37,13 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );
 acf_register_block(
 	array(
 		'name'				=> 'opportunities-intro',
-		'title'				=> __('Opportunities Intro', 'Dra'),
+		'title'				=> __('Opportunities Intro', 'tht'),
 		'category'			=> 'opportunities',
 		'keywords'		 => array('intro', 'block'),
 		'icon' => array(
@@ -57,12 +57,12 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );acf_register_block(
 	array(
 		'name'				=> 'opportunities-links',
-		'title'				=> __('Opportunities Links', 'Dra'),
+		'title'				=> __('Opportunities Links', 'tht'),
 		'category'			=> 'opportunities',
 		'keywords'		 => array('tabs', 'block'),
 		'icon' => array(
@@ -76,6 +76,6 @@ acf_register_block(
 			'align'    => array('full'),
 			'multiple' => false,
 		),
-		'render_callback'	=> 'wpbfm_acf_block_render_callback',
+		'render_callback'	=> 'wptht_acf_block_render_callback',
 	)
 );

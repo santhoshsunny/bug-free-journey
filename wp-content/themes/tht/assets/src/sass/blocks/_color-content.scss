@@ -1,5 +1,7 @@
-#sustainability {
-    background-color: $color-grey-0;
+#colorContent-Block {
+    &.background__full.Grey {
+        margin-bottom: 0;
+    }
 
     @include breakpoint(mobile) {
         padding-bottom: 0;
@@ -32,14 +34,23 @@
         position: absolute;
         right: 0;
         top: 56px;
-        height: 100%;
-        width: auto;
+        height: auto;
+        width: calc(100% - 900px);
     }
 
     .block--content {
         @include fonts(text-lg);
-
         position: relative;
         z-index: 2;
+    }
+
+    &.Blue {
+        .bg--img {
+            opacity: 0.25;
+        }
+        .block--title,
+        .block--content {
+            color: $color-white;
+        }
     }
 }
