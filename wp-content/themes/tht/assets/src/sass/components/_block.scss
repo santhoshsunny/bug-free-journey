@@ -1,5 +1,5 @@
 %greyDiagonal {
-    background-image: linear-gradient(to bottom right, #ffffff 0%, #ffffff 50%, rgba(233,233,233,.6) 50%, #ffffff 82%, #ffffff 100%);
+    // background-image: linear-gradient(to bottom right, #ffffff 0%, #ffffff 50%, rgba(233,233,233,.6) 50%, #ffffff 82%, #ffffff 100%);
 
     @include breakpoint(tablet) {
         background-image: none;

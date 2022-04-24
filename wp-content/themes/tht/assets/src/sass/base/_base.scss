@@ -9,7 +9,7 @@
 body {
   @include fonts('text');
 
-  border-top: 6px solid $color-blue-lt;
+  border-top: 6px solid $color-orange;
   position: relative;
 
   &.nav-expanded,
@@ -73,7 +73,7 @@ button {
     &top {
       background-image:
         linear-gradient(
-          to bottom, 
+          to bottom,
           var(--panelBg),
           var(--panelBg) 50%,
           rgba(255,255,255,0) 50%,
@@ -106,7 +106,7 @@ main,
 .main-content {
   ul:not(.slick-dots) {
     margin-left: 23px;
-  
+
     > li {
       display: flex;
       align-items: center;
@@ -123,14 +123,14 @@ main,
         left: -5px;
         top: 7px;
       }
-  
+
       + li {
         margin-top: 20px;
-  
+
         @include breakpoint(tablet-only) {
           margin-top: 17px;
         }
-  
+
         @include breakpoint(mobile) {
           margin-top: 14px;
         }

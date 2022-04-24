@@ -18,8 +18,8 @@ footer {
                 .btn__outline{
                     min-width: 150px;
                 }
-                
-                
+
+
             }
 
             @include breakpoint(mobile) {
@@ -35,7 +35,7 @@ footer {
                 @include breakpoint(tablet-only) {
                     line-height: 1;
                     max-width: 130px;
-                    
+
                 }
 
                 @include breakpoint(mobile) {
@@ -46,7 +46,7 @@ footer {
 
             .block-description {
                 color: $color-white;
-                width: 58%;
+                width: 40%;
                 max-width: 820px;
 
                 @include breakpoint(tablet) {
@@ -128,7 +128,7 @@ footer {
                                 height: 2px;
                                 width: 70px;
                                 max-width: 100%;
-                                background: #1897cb;
+                                background: $color-blue-dk;
                                 transition: $transition;
                                 }
                             }
@@ -162,7 +162,7 @@ footer {
                     @include breakpoint(tablet) {
                         display: none;
                     }
-                    
+
                     a{
                          &:hover {
                                 //color: $color-white;

@@ -12,12 +12,18 @@
 
 @include font-face('garamond', '../../fonts/garamond/EBGaramond-Regular');
 
+@include font-face('tapestry', '../../fonts/tapestry/Tapestry-Regular');
+
 %serif {
   font-family: "garamond", serif;
 }
 
 %sansSerif {
   font-family: "nunito", sans-serif;
+}
+
+%cursive {
+  font-family: "tapestry", cursive;
 }
 
 @mixin fonts($type) {
@@ -130,6 +136,20 @@
 
     @include breakpoint(tablet) {
       font-size: 22px;
+    }
+  }
+
+  @if ($type == bannertitle) {
+    @extend %cursive;
+
+    font-size: 60px;
+
+    @include breakpoint(tablet) {
+      font-size: 56px;
+    }
+
+    @include breakpoint(mobile) {
+      font-size: 20px;
     }
   }
 }
