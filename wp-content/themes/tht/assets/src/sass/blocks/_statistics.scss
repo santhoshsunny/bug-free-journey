@@ -1,15 +1,17 @@
 #statistics {
     @include breakpoint(desktop) {
-        padding-top: 0;
+        padding-top: 20px;
     }
-
+    @include breakpoint(tablet) {
+        padding-top: 20px;
+    }
     .statistics-- {
         &title {
             @include fonts('headline1');
 
             color: $color-white;
             text-align: center;
-            margin-bottom: 70px;
+            margin-bottom: 85px;
 
             @include breakpoint(tablet-only) {
                 margin-bottom: 35px;
@@ -58,31 +60,42 @@
                     justify-content: center;
 
                     @include breakpoint(tablet-only) {
-                        height: 78px;
+                        height: 200px;
                     }
 
                     @include breakpoint(mobile) {
-                        height: auto;
+                       
                         width: 100%;
-                        display: block;
+                        
                     }
 
                     img {
-                        align-self: center;                        
+                        @include breakpoint(desktop) {
+                        max-width: 100%;
+                        object-fit: contain;   
+                        }
+                        @include breakpoint(mobile) {
+                            max-width: 100%;
+                            object-fit: contain;
+                        }
+                        align-self: center;                       
                         @include breakpoint(tablet-only) {
                             transform: scale(.6);
                         }                        
                         @media only screen and (min-width:1025px) {
-                        height: 130px !important;
-                        width: inherit !important;
+                        height: 250px !important;
+                        max-width: 100%;
                         }
                     }
                 }
 
                 &__title {
+                    @include breakpoint(mobile) {
+                        margin: 40px 0 10px 0;
+                    }
                     color: $color-orange;
                     font: 400 28px/1.2 'garamond';
-                    margin: 10px 0;
+                    margin: 70px 0 10px 0;
                     display: flex;
                     justify-content: center;
                     align-items: baseline;

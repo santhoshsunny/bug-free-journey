@@ -93,13 +93,13 @@
     }
     &.background__top {
         @include breakpoint(desktop) {
-            padding-top: 80px;
+             padding-top: 80px;
         }
         @include breakpoint(tablet-only) {
-            padding-top: 70px;
+            // padding-top: 70px;
         }
         @include breakpoint(mobile) {
-            padding-top: 55px;
+            // padding-top: 55px;
         }
     }
     .slick-slide:not(.slick-current) {

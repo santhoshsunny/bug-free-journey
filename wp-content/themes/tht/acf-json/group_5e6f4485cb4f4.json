@@ -7,7 +7,7 @@
             "label": "Title",
             "name": "title",
             "type": "text",
-            "instructions": "Char Limit : 50",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -34,15 +34,15 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "collapsed": "field_5e6f469f42233",
             "min": 1,
-            "max": 4,
+            "max": 3,
             "layout": "block",
             "button_label": "",
             "sub_fields": [
                 {
                     "key": "field_5e6f469f42233",
-                    "label": "Icon",
+                    "label": "Image",
                     "name": "icon",
                     "type": "image",
                     "instructions": "Recommended Size: 140x140.",
@@ -65,30 +65,11 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5e6f46ab42234",
-                    "label": "Number",
-                    "name": "number",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": 50
-                },
-                {
                     "key": "field_5eb581bd386b6",
                     "label": "Text",
                     "name": "text",
                     "type": "text",
-                    "instructions": "Char Limit : 50",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -106,7 +87,7 @@
                     "key": "field_5e6f46b042235",
                     "label": "Description",
                     "name": "description",
-                    "type": "textarea",
+                    "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -116,10 +97,10 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": 300,
-                    "rows": "",
-                    "new_lines": ""
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
                 }
             ]
         }
@@ -141,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1591355893
+    "modified": 1650901373
 }

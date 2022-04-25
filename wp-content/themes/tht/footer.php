@@ -48,6 +48,13 @@ echo (WP_DEBUG) ? '<!-- BEGIN: [ ' . basename(__FILE__) . ' ]   -->' : '';
 				<?php $phone_number = get_field('phone_number', 'option');
 				$fax_number = get_field('fax_number', 'option');
 				$email = get_field('email', 'option'); ?>
+
+				<a href="mailto:<?php echo $email; ?>" class="icon--div">
+					<div class="icon icon--mail"></div>
+					<div class="text">
+						<?php echo $email; ?>
+					</div>
+				</a>
 				<a href="tel:+<?php echo $phone_number; ?>" class="icon--div">
 					<div class="icon icon--phone"></div>
 					<div class="text">
@@ -60,12 +67,7 @@ echo (WP_DEBUG) ? '<!-- BEGIN: [ ' . basename(__FILE__) . ' ]   -->' : '';
 						<?php echo $fax_number; ?>
 					</div>
 				</a>
-				<a href="mailto:contact@draadvisors.com" class="icon--div">
-					<div class="icon icon--mail"></div>
-					<div class="text">
-						<?php echo $email; ?>
-					</div>
-				</a>
+
 			</div>
 		</div>
 	</section>

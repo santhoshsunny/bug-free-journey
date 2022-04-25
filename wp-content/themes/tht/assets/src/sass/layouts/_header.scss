@@ -333,7 +333,7 @@ header.site-header {
 
 .expand {
     font-size: 25px;
-    color: #ef8a22;
+    color: $color-orange;
     display: none !important;
     width: 5px;
     height: 20px;
@@ -345,7 +345,7 @@ header.site-header {
         content: '+';
         font-size: 25px;
         font-weight: bold;
-        color: #ef8a22;
+        color: $color-orange;
         position: absolute;
         top: 0px;
     }
@@ -353,7 +353,7 @@ header.site-header {
         content: '';
         font-size: 25px;
         font-weight: bold;
-        color: #ef8a22;
+        color: $color-orange;
         position: absolute;
         top: 0px;
     }

@@ -8,7 +8,7 @@ $delay = ($image) ? 150 : 0;
 <!-- NOTE FROM FE: Use class 'content__left' or 'content__right' below to align the content block -->
 <!-- NOTE FROM FE: Use class 'background__bottom', 'background__top', or background__full below to set background color position -->
 
-<div id="img-text" class="block content__right background__bottom">
+<div id="img-text" class="block content__right">
     <div class="wrapper">
         <?php if ($image) : ?>
             <div class="img-text--img" data-aos="fade-right">
